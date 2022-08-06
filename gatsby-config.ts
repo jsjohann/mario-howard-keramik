@@ -21,7 +21,20 @@ const config: GatsbyConfig = {
       "path": "./src/images/"
     },
     __key: "images"
-  }]
+  },
+  {
+			resolve: '@directus/gatsby-source-directus',
+			options: {
+				url: `https://ciwyi1ri.directus.app`, // Fill with your Directus instance address
+				/* auth: {
+					token: 'my_secret_token', // You can use a static token from an user
+
+					// Or you can use the credentials of an user
+					// email: "johndoe@directus.cloud",
+					// password: "mysecretpassword",
+				},*/
+			},
+		},]
 };
 
 export default config;

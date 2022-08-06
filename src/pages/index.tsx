@@ -1,5 +1,5 @@
 import * as React from "react"
-import type { HeadFC } from "gatsby"
+import { graphql, HeadFC } from "gatsby"
 
 const pageStyles = {
   color: "#232129",
@@ -136,7 +136,7 @@ const links = [
   },
 ]
 
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
   return (
     <main style={pageStyles}>
       <h1 style={headingStyles}>
@@ -144,6 +144,15 @@ const IndexPage = () => {
         <br />
         <span style={headingAccentStyles}>— you just made a Gatsby site! 🎉🎉🎉</span>
       </h1>
+      <ul>
+        {
+          data.directus.Verkaufsobjekte.map((node) => (
+          <li key={node.Titel}>
+            {node.Titel}
+          </li>
+          ))
+        }
+      </ul>
       <p style={paragraphStyles}>
         Edit <code style={codeStyles}>src/pages/index.tsx</code> to see this page
         update in real-time. 😎
@@ -191,3 +200,14 @@ const IndexPage = () => {
 export default IndexPage
 
 export const Head: HeadFC = () => <title>Home Page</title>
+
+export const query = graphql`
+  query {
+    directus {
+      Verkaufsobjekte {
+        Titel
+        Foto
+      }
+    }
+  }
+`
