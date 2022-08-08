@@ -146,9 +146,9 @@ const IndexPage = ({ data }) => {
       </h1>
       <ul>
         {
-          data.directus.Verkaufsobjekte.map((node) => (
-          <li key={node.Titel}>
-            {node.Titel}
+          data.allGraphCmsVerkaufsobjekt.nodes.map((node) => (
+          <li key={node.titel}>
+            {node.titel}
           </li>
           ))
         }
@@ -203,10 +203,11 @@ export const Head: HeadFC = () => <title>Home Page</title>
 
 export const query = graphql`
   query {
-    directus {
-      Verkaufsobjekte {
-        Titel
-        Foto
+    allGraphCmsVerkaufsobjekt {
+      nodes {
+        preis
+        beschreibung
+        titel
       }
     }
   }
