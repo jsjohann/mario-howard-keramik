@@ -5,7 +5,7 @@ on:
     branches:
       - master
 	repository_dispatch:
-    types: [publish_graphcm]
+    types: [publish_graphcms]
 
 jobs:
   build:
