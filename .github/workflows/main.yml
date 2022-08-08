@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - master
-	workflow_dispatch:
-  repository_dispatch:
+	repository_dispatch:
+    types: [publish_graphcm]
 
 jobs:
   build:
