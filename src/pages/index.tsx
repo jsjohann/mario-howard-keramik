@@ -142,13 +142,13 @@ const IndexPage = ({ data }) => {
       <h1 style={headingStyles}>
         Congratulations
         <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site! 🎉🎉🎉</span>
+        <span style={headingAccentStyles}>— you just made a Gatsby Test site! 🎉🎉🎉</span>
       </h1>
       <ul>
         {
-          data.allGraphCmsVerkaufsobjekt.nodes.map((node) => (
-          <li key={node.titel}>
-            {node.titel}
+          data.directus.Verkaufsobjekte.map((node) => (
+          <li key={node.Titel}>
+            {node.Titel}
           </li>
           ))
         }
@@ -203,11 +203,10 @@ export const Head: HeadFC = () => <title>Home Page</title>
 
 export const query = graphql`
   query {
-    allGraphCmsVerkaufsobjekt {
-      nodes {
-        preis
-        beschreibung
-        titel
+    directus {
+      Verkaufsobjekte {
+        Titel
+        Foto
       }
     }
   }

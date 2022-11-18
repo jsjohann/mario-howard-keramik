@@ -23,12 +23,18 @@ const config: GatsbyConfig = {
     __key: "images"
   },
   {
-      resolve: 'gatsby-source-graphcms',
-      options: {
-        endpoint: "https://api-eu-central-1.hygraph.com/v2/cl6kwtz1k04x801ujey67blnw/master",
-      },
-    }
-  ]
+			resolve: '@directus/gatsby-source-directus',
+			options: {
+				url: `https://ciwyi1ri.directus.app`, // Fill with your Directus instance address
+				/* auth: {
+					token: 'my_secret_token', // You can use a static token from an user
+
+					// Or you can use the credentials of an user
+					// email: "johndoe@directus.cloud",
+					// password: "mysecretpassword",
+				},*/
+			},
+		},]
 };
 
 export default config;
