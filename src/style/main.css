@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'League Spartan';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: 'Regular';
+  src: url(/fonts/LeagueSpartan-VF.woff) format("woff");
+}
+
+body {
+  font-family: 'League Spartan', 'Futura', 'sans-serif';
+}
