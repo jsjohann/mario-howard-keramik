@@ -1,7 +1,7 @@
 import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
-  pathPrefix: '/mario-howard-keramik',
+  pathPrefix: '/mario-howard-keramik/',
   siteMetadata: {
     title: `mario-howard-keramik`,
     siteUrl: `https://jsjohann.github.io`
