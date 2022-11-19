@@ -52,7 +52,8 @@ const shopStyle = {
 
 const shopContainerStyle = {
   scrollSnapType: 'x mandatory',
-  webkitOverflowScrolling: 'touch',
+  overflowScrolling: "touch",
+  WebkitOverflowScrolling: "touch",
   display: 'flex',
   flexWrap: 'nowrap',
   overflowX: 'scroll'
