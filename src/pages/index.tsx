@@ -146,7 +146,7 @@ export const query = graphql`
         Bild {
           imageFile {
             childImageSharp {         
-              gatsbyImageData(width: 1200, placeholder: BLURRED)
+              gatsbyImageData(width: 1200, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
             }
           }
         id
