@@ -1,18 +1,54 @@
 import * as React from "react"
-import { graphql, HeadFC } from "gatsby"
+import { graphql, HeadFC, Link } from "gatsby"
 import HeaderVideo from "../assets/header-video.mp4";
 
-import { Container, Row, Col} from 'react-bootstrap';
+import { Container, Row, Col, Card} from 'react-bootstrap';
 import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faLocationDot,
+  faPhone,
+  faEnvelopeOpenText
+} from '@fortawesome/free-solid-svg-icons'
+import { config } from '@fortawesome/fontawesome-svg-core'
+// Disable the auto CSS insertion
+// config.autoAddCss = false
 
 const cardStyle = {
-  backgroundColor: 'rgba(255, 255, 255, 0.85)'
+  position: 'relative'
+};
+
+const cardContentStyle = {
+  position: 'absolute',
+  backgroundColor: 'rgba(255, 255, 255, 0.85)',
+  bottom: 0
+}
+
+const contactStyle = {
+  backgroundColor: '#B23929',
+  color: '#ffffff'
+}
+
+const contactContentStyle = {
+  display: 'flex',
+  flexDirection: 'column'
+}
+
+const contactContentListStyle = {
+  display: 'flex',
+  flexDirection: 'row'
+}
+
+const footerStyle = {
+  color: '#DCDCDC',
+  backgroundColor: '#4A262A',
+  fontSize: '1rem'
 }
 
 const IndexPage = ({ data }) => {
   return (
     <main>
-      <Container fluid="md">
+      <Container fluid="xl" className="p-0">
         <Row>
           <Col>
             <video style={ { width: '100%' } } autoPlay loop>
@@ -21,18 +57,76 @@ const IndexPage = ({ data }) => {
           </Col>
         </Row>
       </Container>
-      <Container>
-        {data.directus.Inhaltsobjekte.map((node) => (
-          <Row key={node.Titel}>
-            <Col>
-              <div style={cardStyle}>
-                <div>{node.Titel}</div>
-                <div>{node.Inhalt}</div>
+      {data.directus.Inhaltsobjekte.map((node) => {
+        const image = getImage(node.Bild.imageFile);
+
+        if (node.Titel) {
+           return (
+            <Container fluid="xl" key={node.Titel} className="p-0 mb-4">
+              <GatsbyImage image={image} alt="{node.Titel}" />
+              <Row>
+                <Col sm={8} sm={{ span: 8, offset: node.Ausrichtung === 'left' ? 0 : 4 }}>
+                  <div style={cardStyle}>
+                    <div style={cardContentStyle} className={node.Ausrichtung === 'left' ? 'p-4 ps-6 mb-4' : 'p-4 pe-6 mb-4'}>
+                      <h2>{node.Titel}</h2>
+                      <p style={{ marginBottom: 0 }}>{node.Inhalt}</p>
+                    </div>
+                  </div>
+                </Col>
+              </Row>
+            </Container>
+          ) 
+        } else {
+           return (
+          <Container fluid="xl" key={node.Titel} className="p-0 mb-4">
+            <GatsbyImage image={image} alt="{node.Titel}" />
+          </Container>
+        )
+        }
+      })}
+
+      <Container fluid="xl" style={contactStyle} className="p-5 ps-6 pe-6">
+        <Row>
+          <Col sm={6}>
+            <h2>Anfahrt und Kontakt</h2>
+            <div style={contactContentStyle}>
+              <div style={contactContentListStyle} className="mb-5">
+                <FontAwesomeIcon icon={faLocationDot} fixedWidth />
+                <div className="ms-4">
+                  <span style={{ display: 'block' }}>Studio + Keramik</span>
+                  <span style={{ display: 'block' }}>Mario Howard</span>
+                  <span style={{ display: 'block' }}>Dorfstraße 7</span>
+                  <span style={{ display: 'block' }}>01468 Moritzburg (OT Friedewald)</span>
+                </div>
               </div>
-              <GatsbyImage image={getImage(node.Bild.imageFile) as IGatsbyImageData} alt="{node.Titel}" />
-            </Col>
-          </Row>
-        ))}
+              <div style={contactContentListStyle}>
+                <FontAwesomeIcon icon={faEnvelopeOpenText} fixedWidth />
+                <div className="ms-4">
+                  +49 (0) 172 / 814 20 59
+                </div>
+              </div>
+              <div style={contactContentListStyle}>
+                <FontAwesomeIcon icon={faPhone} fixedWidth />
+                <div className="ms-4">
+                  mario.howard@gmx.de
+                </div>
+              </div>
+            </div>
+           
+          </Col>
+        </Row>
+      </Container>
+
+      <Container fluid="xl" style={footerStyle} className="p-4 ps-6 pe-6">
+        <Row>
+          <Col>
+            Mario Howard
+          </Col>
+          <Col className='text-end'>
+            <Link className='link me-3' activeClassName='link--active' to='/imprint'>Impressum</Link>
+            <Link className='link' activeClassName='link--active'to='/datenschutz'>Datenschutz</Link>
+          </Col>
+        </Row>
       </Container>
     </main>
   )
@@ -51,9 +145,8 @@ export const query = graphql`
         Ausrichtung
         Bild {
           imageFile {
-            childImageSharp {
-              gatsbyImageData(placeholder:BLURRED)
-              id
+            childImageSharp {         
+              gatsbyImageData(width: 1200, placeholder: BLURRED)
             }
           }
         id

@@ -17,6 +17,9 @@
   },
   "dependencies": {
     "@directus/gatsby-source-directus": "^9.14.4",
+    "@fortawesome/fontawesome-svg-core": "^6.2.1",
+    "@fortawesome/free-solid-svg-icons": "^6.2.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "bootstrap": "^5.2.2",
     "gatsby": "^4.24.8",
     "gatsby-plugin-image": "^2.24.0",
