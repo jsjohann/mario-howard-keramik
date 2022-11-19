@@ -3,7 +3,7 @@ import { graphql, HeadFC } from "gatsby"
 import HeaderVideo from "../assets/header-video.mp4";
 
 import { Container, Row, Col} from 'react-bootstrap';
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 
 const cardStyle = {
   backgroundColor: 'rgba(255, 255, 255, 0.85)'
@@ -29,7 +29,7 @@ const IndexPage = ({ data }) => {
                 <div>{node.Titel}</div>
                 <div>{node.Inhalt}</div>
               </div>
-              <GatsbyImage image={getImage(node.Bild.imageFile)} />
+              <GatsbyImage image={getImage(node.Bild.imageFile) as IGatsbyImageData} alt="{node.Titel}" />
             </Col>
           </Row>
         ))}
