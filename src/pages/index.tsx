@@ -11,6 +11,7 @@ import {
   faEnvelopeOpenText
 } from '@fortawesome/free-solid-svg-icons'
 import { config } from '@fortawesome/fontawesome-svg-core'
+import Footer from '../components/Footer';
 // Disable the auto CSS insertion
 // config.autoAddCss = false
 
@@ -49,7 +50,16 @@ const shopStyle = {
 
 }
 
+const shopContainerStyle = {
+  scrollSnapType: 'x mandatory',
+  webkitOverflowScrolling: 'touch',
+  display: 'flex',
+  flexWrap: 'nowrap',
+  overflowX: 'scroll'
+}
+
 const shopObjectStyle = {
+  scrollSnapAlign: 'start'
 }
 
 const IndexPage = ({ data }) => {
@@ -94,7 +104,7 @@ const IndexPage = ({ data }) => {
 
       <Container fluid="xl" style={shopStyle} className="p-5 ps-6 pe-6">
         <h2 className='mb-3'>Aktuelle Verkaufsobjekte</h2>
-        <Row>
+        <Row style={shopContainerStyle}>
 
           {data.directus.Verkaufsobjekte.length ? data.directus.Verkaufsobjekte.map((node) => {
             const image = getImage(node.Fotos[0].directus_files_id.imageFile);
@@ -143,17 +153,7 @@ const IndexPage = ({ data }) => {
         </Row>
       </Container>
 
-      <Container fluid="xl" style={footerStyle} className="p-4 ps-6 pe-6">
-        <Row>
-          <Col>
-            Mario Howard
-          </Col>
-          <Col className='text-end'>
-            <Link className='link me-3' activeClassName='link--active' to='/imprint'>Impressum</Link>
-            <Link className='link' activeClassName='link--active'to='/datenschutz'>Datenschutz</Link>
-          </Col>
-        </Row>
-      </Container>
+      <Footer></Footer>
     </main>
   )
 }
