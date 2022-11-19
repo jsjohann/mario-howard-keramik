@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmario_howard_keramik=self.webpackChunkmario_howard_keramik||[]).push([[182],{8331:function(e,n,r){r.r(n),r.d(n,{Head:function(){return u}});var t=r(7294);n.default=function(){return t.createElement("main",null,t.createElement("h1",null,"Impressum"))};var u=function(){return t.createElement("title",null,"Not found")}}}]);
+//# sourceMappingURL=component---src-pages-imprint-tsx-91f7085ed33ef9c3ecc3.js.map

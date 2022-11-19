@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmario_howard_keramik=self.webpackChunkmario_howard_keramik||[]).push([[316],{2798:function(e,n,t){t.r(n),t.d(n,{Head:function(){return a}});var r=t(7294);n.default=function(){return r.createElement("main",null,r.createElement("h1",null,"Datenschutz"))};var a=function(){return r.createElement("title",null,"Not found")}}}]);
+//# sourceMappingURL=component---src-pages-datenschutz-tsx-80a348ac277649bd3f72.js.map
