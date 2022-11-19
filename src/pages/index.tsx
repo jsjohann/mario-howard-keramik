@@ -45,6 +45,13 @@ const footerStyle = {
   fontSize: '1rem'
 }
 
+const shopStyle = {
+
+}
+
+const shopObjectStyle = {
+}
+
 const IndexPage = ({ data }) => {
   return (
     <main>
@@ -84,6 +91,25 @@ const IndexPage = ({ data }) => {
         )
         }
       })}
+
+      <Container fluid="xl" style={shopStyle} className="p-5 ps-6 pe-6">
+        <h2 className='mb-3'>Aktuelle Verkaufsobjekte</h2>
+        <Row>
+
+          {data.directus.Verkaufsobjekte.length ? data.directus.Verkaufsobjekte.map((node) => {
+            const image = getImage(node.Fotos[0].directus_files_id.imageFile);
+
+            return (
+              <Col sm={3} key={node.Titel} style={shopObjectStyle}>
+                <GatsbyImage image={image} alt="{node.Titel}" />
+                <h3 style={{ fontSize: '1.1rem' }} className="mt-2 mb-0">{node.Titel}</h3>
+                <p style={{ fontSize: '1.1rem' }}>{node.Preis} €</p>
+              </Col>
+            )
+          }) : <p>Aktuell werden keine Objekte zum Verkauf angeboten. Schauen Sie gern zu einem späteren Zeitpunkt noch einmal vorbei oder nutzen Sie die untenstehenden Kontaktmöglichkeiten. </p>
+          }
+        </Row>
+      </Container>
 
       <Container fluid="xl" style={contactStyle} className="p-5 ps-6 pe-6">
         <Row>
@@ -150,6 +176,22 @@ export const query = graphql`
             }
           }
         id
+        }
+      }
+      Verkaufsobjekte {
+        Titel
+        Beschreibung
+        Preis
+        Fotos {
+          directus_files_id {
+            id
+            imageFile {
+              childImageSharp {
+                gatsbyImageData(width: 1200, aspectRatio: 1)
+              }
+            }
+          }
+          id
         }
       }
     }
