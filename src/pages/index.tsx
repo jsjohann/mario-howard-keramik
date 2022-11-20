@@ -15,6 +15,7 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Logo from '../components/Logo';
 import Map from '../components/Map'
+import Details from '../components/Details';
 // Disable the auto CSS insertion
 // config.autoAddCss = false
 
@@ -80,7 +81,14 @@ const IndexPage = ({ data }) => {
         </Row>
       </Container>
       <Logo></Logo>
-      {data.directus.Inhaltsobjekte.map((node) => {
+      {data.directus.Inhaltsobjekte.map((node, index) => {
+
+        if (index === 5) {
+          return (
+            <Details key={index}></Details>
+          )
+        }
+
         const image = getImage(node.Bild.imageFile);
 
         if (node.Titel) {
@@ -100,11 +108,11 @@ const IndexPage = ({ data }) => {
             </Container>
           ) 
         } else {
-           return (
-          <Container fluid="xl" key={node.Titel} className="p-0 mb-4">
-            <GatsbyImage image={image} alt="{node.Titel}" />
-          </Container>
-        )
+          return (
+            <Container fluid="xl" key={node.Titel} className="p-0 mb-4">
+              <GatsbyImage image={image} alt="{node.Titel}" />
+            </Container>
+          )
         }
       })}
 
