@@ -14,6 +14,7 @@ import { config } from '@fortawesome/fontawesome-svg-core'
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Logo from '../components/Logo';
+import Map from '../components/Map'
 // Disable the auto CSS insertion
 // config.autoAddCss = false
 
@@ -153,7 +154,9 @@ const IndexPage = ({ data }) => {
                 </div>
               </div>
             </div>
-           
+          </Col>
+          <Col sm={6}>
+            <Map></Map>
           </Col>
         </Row>
       </Container>
