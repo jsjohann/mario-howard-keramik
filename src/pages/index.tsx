@@ -12,6 +12,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import Footer from '../components/Footer';
+import Header from '../components/Header';
+import Logo from '../components/Logo';
 // Disable the auto CSS insertion
 // config.autoAddCss = false
 
@@ -66,6 +68,7 @@ const shopObjectStyle = {
 const IndexPage = ({ data }) => {
   return (
     <main>
+      <Header color="white" position="absolute"></Header>
       <Container fluid="xl" className="p-0">
         <Row>
           <Col>
@@ -75,6 +78,7 @@ const IndexPage = ({ data }) => {
           </Col>
         </Row>
       </Container>
+      <Logo></Logo>
       {data.directus.Inhaltsobjekte.map((node) => {
         const image = getImage(node.Bild.imageFile);
 
@@ -117,7 +121,7 @@ const IndexPage = ({ data }) => {
                 <p style={{ fontSize: '1.1rem' }}>{node.Preis} €</p>
               </Col>
             )
-          }) : <p>Aktuell werden keine Objekte zum Verkauf angeboten. Schauen Sie gern zu einem späteren Zeitpunkt noch einmal vorbei oder nutzen Sie die untenstehenden Kontaktmöglichkeiten. </p>
+          }) : <p>Aktuell werden keine Objekte zum Verkauf angeboten. Schauen Sie gern zu einem späteren Zeitpunkt noch einmal vorbei oder nutzen Sie die untenstehenden Kontaktmöglichkeiten.</p>
           }
         </Row>
       </Container>
@@ -125,7 +129,7 @@ const IndexPage = ({ data }) => {
       <Container fluid="xl" style={contactStyle} className="p-5 ps-6 pe-6">
         <Row>
           <Col sm={6}>
-            <h2>Anfahrt und Kontakt</h2>
+            <h2 className="mb-4">Anfahrt und Kontakt</h2>
             <div style={contactContentStyle}>
               <div style={contactContentListStyle} className="mb-5">
                 <FontAwesomeIcon icon={faLocationDot} fixedWidth />
