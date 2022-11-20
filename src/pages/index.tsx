@@ -171,12 +171,12 @@ export const query = graphql`
         Inhalt
         Ausrichtung
         Bild {
+          id
           imageFile {
             childImageSharp {         
               gatsbyImageData(width: 1200, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
             }
           }
-        id
         }
       }
       Verkaufsobjekte {
@@ -192,7 +192,6 @@ export const query = graphql`
               }
             }
           }
-          id
         }
       }
     }
