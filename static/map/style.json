@@ -27,7 +27,7 @@
     }
   },
   "sprite": "https://jsjohann.github.io/mario-howard-keramik/map/sprite/sprite",
-  "glyphs": "/map/fonts/{fontstack}/{range}.pbf?key={key}",
+  "glyphs": "https://jsjohann.github.io/mario-howard-keramik/map/fonts/{fontstack}/{range}.pbf?key={key}",
   "layers": [
     {
       "id": "background",
