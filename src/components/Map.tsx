@@ -25,7 +25,7 @@ export default function Map(){
     if (map.current) return;
     map.current = new maplibregl.Map({
       container: mapContainer.current,
-      style: `https://jsjohann.github.io/mario-howard-keramik/static/map/style.json`,
+      style: `https://jsjohann.github.io/mario-howard-keramik/map/style.json`,
       center: [lng, lat],
       zoom: zoom
     });

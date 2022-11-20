@@ -23,11 +23,11 @@
   "sources": {
     "openmaptiles": {
       "type": "vector",
-      "url": "https://jsjohann.github.io/mario-howard-keramik/static/map/metadata.json"
+      "url": "https://jsjohann.github.io/mario-howard-keramik/map/metadata.json"
     }
   },
-  "sprite": "https://jsjohann.github.io/mario-howard-keramik/static/map/sprite/sprite",
-  "glyphs": "/static/map/fonts/{fontstack}/{range}.pbf?key={key}",
+  "sprite": "https://jsjohann.github.io/mario-howard-keramik/map/sprite/sprite",
+  "glyphs": "/map/fonts/{fontstack}/{range}.pbf?key={key}",
   "layers": [
     {
       "id": "background",
