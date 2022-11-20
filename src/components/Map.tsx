@@ -1,6 +1,12 @@
 import React, { useRef, useEffect, useState } from 'react';
-import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
+
+//@ts-ignore
+import maplibregl from "!maplibre-gl";
+//@ts-ignore
+import maplibreglWorker from "maplibre-gl/dist/maplibre-gl-csp-worker";
+//@ts-ignore
+maplibregl.workerClass = maplibreglWorker;
 
 const mapWraperStyle = {
   position: 'relative',
@@ -17,12 +23,13 @@ const mapContainerStyle = {
 export default function Map(){
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const [lng] = useState(13.7169);
-  const [lat] = useState(51.02955);
-  const [zoom] = useState(11);
+  const [lng] = useState(13.6612579206084939);
+  const [lat] = useState(51.14060098242761);
+  const [zoom] = useState(15);
 
   useEffect(() => {
     if (map.current) return;
+
     map.current = new maplibregl.Map({
       container: mapContainer.current,
       style: `https://jsjohann.github.io/mario-howard-keramik/map/style.json`,

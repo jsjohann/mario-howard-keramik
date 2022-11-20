@@ -15,11 +15,16 @@ const Details = () => {
           <Col sx={6}>
             <StaticImage src="../assets/Einblick.jpg" alt="Einblick in die Werkstatt"></StaticImage>
           </Col>
-          <Col sx={6}>
-            <video style={ { width: '100%' } } autoPlay loop muted>
-              <source src={DetailsVideo} type="video/mp4" />
-            </video>
-            <StaticImage src="../assets/Detail.jpg" alt="Detailaufnahme bei der Arbeit"></StaticImage>
+          <Col sx={6} className="d-flex flex-column">
+            <div className="mb-4" style={{ flex: 1}}>
+              <video style={ { width: '100%', height: '100%', objectFit: 'cover' } } autoPlay loop muted>
+                <source src={DetailsVideo} type="video/mp4" />
+              </video>
+            </div>
+            <div style={{ flex: 1}}>
+              <StaticImage style={{ height: '100%' }} src="../assets/Detail.jpg" alt="Detailaufnahme bei der Arbeit"></StaticImage>
+            </div>
+
           </Col>
         </Row>
       </Container>
