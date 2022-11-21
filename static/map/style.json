@@ -32,7 +32,7 @@
     {
       "id": "background",
       "type": "background",
-      "paint": {"background-color": "#DCDCDC", "background-opacity": 0.2}
+      "paint": {"background-color": "#FFFFFF", "background-opacity": 1}
     },
     {
       "id": "park",
@@ -666,7 +666,6 @@
         "text-pitch-alignment": "viewport",
         "text-rotation-alignment": "map",
         "text-size": 10,
-        "text-transform": "uppercase",
         "visibility": "visible"
       },
       "paint": {
@@ -784,7 +783,6 @@
         "text-justify": "center",
         "text-offset": [0.5, 0],
         "text-size": 10,
-        "text-transform": "uppercase",
         "visibility": "visible"
       },
       "paint": {
@@ -809,7 +807,6 @@
         "text-justify": "center",
         "text-offset": [0.5, 0],
         "text-size": 10,
-        "text-transform": "uppercase",
         "visibility": "visible"
       },
       "paint": {
@@ -835,7 +832,6 @@
         "text-justify": "left",
         "text-offset": [0.5, 0.2],
         "text-size": 10,
-        "text-transform": "uppercase",
         "visibility": "visible"
       },
       "paint": {
@@ -863,7 +859,6 @@
         "text-justify": "left",
         "text-offset": [0.5, 0.2],
         "text-size": 10,
-        "text-transform": "uppercase",
         "visibility": "visible"
       },
       "paint": {
@@ -895,7 +890,6 @@
         "text-justify": "left",
         "text-offset": [0.5, 0.2],
         "text-size": 10,
-        "text-transform": "uppercase",
         "visibility": "visible"
       },
       "paint": {
@@ -927,7 +921,6 @@
         "text-justify": "left",
         "text-offset": [0.5, 0.2],
         "text-size": 14,
-        "text-transform": "uppercase",
         "visibility": "visible"
       },
       "paint": {
@@ -964,7 +957,6 @@
         "text-justify": "left",
         "text-offset": [0.5, 0.2],
         "text-size": 14,
-        "text-transform": "uppercase",
         "visibility": "visible"
       },
       "paint": {
@@ -987,7 +979,6 @@
         "text-field": "{name:latin}\n{name:nonlatin}",
         "text-font": ["Regular"],
         "text-size": 10,
-        "text-transform": "uppercase",
         "visibility": "visible"
       },
       "paint": {
@@ -1014,7 +1005,6 @@
         "text-field": "{name:latin}",
         "text-font": ["LightItalic"],
         "text-size": {"base": 1, "stops": [[0, 9], [6, 11]]},
-        "text-transform": "uppercase",
         "visibility": "visible"
       },
       "paint": {
@@ -1044,7 +1034,6 @@
         "text-field": "{name:latin}",
         "text-font": ["Regular"],
         "text-size": {"base": 1, "stops": [[0, 10], [6, 12]]},
-        "text-transform": "uppercase",
         "visibility": "visible"
       },
       "paint": {
@@ -1075,7 +1064,6 @@
         "text-field": "{name:latin}",
         "text-font": ["Regular"],
         "text-size": {"base": 1.4, "stops": [[0, 10], [3, 12], [4, 14]]},
-        "text-transform": "uppercase",
         "visibility": "visible"
       },
       "paint": {

@@ -20,11 +20,14 @@ const mapContainerStyle = {
   height: '100%'
 }
 
+const MAP_CENTER_LNG = 13.66125;
+const MAP_CENTER_LAT = 51.140657;
+
 export default function Map(){
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const [lng] = useState(13.6612579206084939);
-  const [lat] = useState(51.14060098242761);
+  const [lng] = useState(MAP_CENTER_LNG);
+  const [lat] = useState(MAP_CENTER_LAT);
   const [zoom] = useState(15);
 
   useEffect(() => {
@@ -39,6 +42,10 @@ export default function Map(){
       maxZoom: 18,
       maxBounds: [[13, 50.8], [14.4, 51.2]]
     });
+
+    map.current.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+
+    new maplibregl.Marker({ color: '#8EC8D5' }).setLngLat([MAP_CENTER_LNG, MAP_CENTER_LAT]).addTo(map.current);
 
   });
 
