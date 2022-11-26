@@ -11,6 +11,7 @@ body {
   font-family: 'League Spartan', 'Futura', 'sans-serif';
   font-size: 1.75rem;
   line-height: 1.5;
+  background: #fffefb;
 }
 
 h1 {
@@ -45,4 +46,35 @@ h2 {
 
 .link--active {
   text-decoration: underline;
+}
+
+.gallery-navigation {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  top: 0;
+  height: 100%;
+  left: -2rem;
+  right: -2rem;
+}
+
+.gallery-navigation-button {
+  display: flex;
+  align-items: center;
+  color: #B23929;
+  cursor: pointer;
+  height: calc(100% - 3.5rem);
+}
+
+.gallery-navigation-button--disabled {
+  opacity: 0.5;
+}
+
+.modal-dialog {
+  max-width: 90vw;
+}
+
+.modal-content {
+  border-radius: 0;
+  background-color: #fffefb;
 }

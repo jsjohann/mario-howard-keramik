@@ -1,14 +1,17 @@
 import * as React from "react"
+import { useRef, useState } from "react"
 import { graphql, HeadFC, Link } from "gatsby"
 import HeaderVideo from "../assets/header-video.mp4";
 
-import { Container, Row, Col, Card} from 'react-bootstrap';
+import { Container, Row, Col, Modal} from 'react-bootstrap';
 import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faLocationDot,
   faPhone,
-  faEnvelopeOpenText
+  faEnvelopeOpenText,
+  faAngleLeft,
+  faAngleRight
 } from '@fortawesome/free-solid-svg-icons'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import Footer from '../components/Footer';
@@ -18,12 +21,10 @@ import Map from '../components/Map'
 import Details from '../components/Details';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Mousewheel, Pagination, Navigation } from 'swiper';
+import SwiperCore, { Mousewheel, Swiper as SwiperType } from 'swiper';
 import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 
-SwiperCore.use([Mousewheel, Pagination, Navigation])
+SwiperCore.use([Mousewheel])
 
 // Disable the auto CSS insertion
 // config.autoAddCss = false
@@ -40,7 +41,7 @@ const cardContentStyle = {
 
 const contactStyle = {
   backgroundColor: '#B23929',
-  color: '#ffffff'
+  color: '#fffefb'
 }
 
 const contactContentStyle = {
@@ -130,29 +131,7 @@ const IndexPage = ({ data }) => {
         <Row style={shopContainerStyle}>
 
           {data.directus.Verkaufsobjekte.length ? 
-            <Swiper
-              modules = {[Mousewheel, Pagination, Navigation]}
-              mousewheel = {{ enabled: true }}
-              pagination = {{ enabled: true }}
-              navigation = {{ enabled: true }}
-              spaceBetween = {24}
-              slidesPerView = {3}
-              onSlideChange = {() => console.log('slide change')}
-              onSwiper = {(swiper) => console.log(swiper)}
-            >
-              {data.directus.Verkaufsobjekte.map((node) => {
-              const image = getImage(node.Fotos[0].directus_files_id.imageFile);
-
-              return (
-                <SwiperSlide key={node.Titel}>
-                  <GatsbyImage image={image} alt="{node.Titel}" />
-                  <h3 style={{ fontSize: '1.1rem' }} className="mt-2 mb-0">{node.Titel}</h3>
-                  <p style={{ fontSize: '1.1rem' }}>{node.Preis} €</p>
-                </SwiperSlide>
-
-              )
-            })}
-            </Swiper> : <p>Aktuell werden keine Objekte zum Verkauf angeboten. Schauen Sie gern zu einem späteren Zeitpunkt noch einmal vorbei oder nutzen Sie die untenstehenden Kontaktmöglichkeiten.</p>
+            Carousel(data) : <p>Aktuell werden keine Objekte zum Verkauf angeboten. Schauen Sie gern zu einem späteren Zeitpunkt noch einmal vorbei oder nutzen Sie die untenstehenden Kontaktmöglichkeiten.</p>
           }
         </Row>
       </Container>
@@ -196,6 +175,94 @@ const IndexPage = ({ data }) => {
   )
 }
 
+const Carousel = (data) => {
+  const swiperRef = useRef<SwiperType>();
+  const [currentProgress, setCurrentProgress] = useState<number>(0);
+  const [show, setShow] = useState<boolean>(false);
+  const [activeItem, setActiveItem] = useState(undefined);
+
+  const handleShow = (item) => {
+    setShow(true);
+    setActiveItem(item);
+  }
+  const handleClose = () => {
+    setShow(false);
+    setActiveItem(undefined);
+  }
+  
+  return (
+    <div style={{ position: 'relative' }}>
+      <Swiper
+        modules = {[Mousewheel]}
+        mousewheel = {{ }}
+        spaceBetween = {24}
+        slidesPerView = {1}
+        onSlideChange = { (state) => setCurrentProgress(state.progress) }
+        onBeforeInit={(swiper) => {
+          swiperRef.current = swiper;
+        }}
+        breakpoints = {{
+          576: {
+            slidesPerView: 2
+          },
+          768: {
+            slidesPerView: 3
+          },
+          992: {
+            slidesPerView: 4
+          }
+        }}
+      >
+        {data.directus.Verkaufsobjekte.map((node) => {
+          const image = getImage(node.Fotos[0].directus_files_id.imageFile);
+
+          return (
+            <SwiperSlide key={node.Titel} onClick={() => handleShow(node)} style={{ cursor: 'pointer' }}>
+              <GatsbyImage image={image} alt="{node.Titel}" />
+              <h3 style={{ fontSize: '1.1rem' }} className="mt-2 mb-0">{node.Titel}</h3>
+              <p style={{ fontSize: '1.1rem' }}>{node.Preis} €</p>
+            </SwiperSlide>
+          )})
+        }
+        
+      </Swiper>
+
+      <div className="gallery-navigation">
+        <div className={`gallery-navigation-button gallery-navigation-button--prev ${currentProgress === 0 ? 'gallery-navigation-button--disabled' : ''}`} onClick={() => swiperRef.current?.slidePrev()}>
+          <FontAwesomeIcon icon={faAngleLeft} fixedWidth />
+        </div>
+        <div className={`gallery-navigation-button gallery-navigation-button--next ${currentProgress === 1 ? 'gallery-navigation-button--disabled' : ''}`} onClick={() => swiperRef.current?.slideNext()}>
+          <FontAwesomeIcon icon={faAngleRight} fixedWidth />
+        </div>
+      </div>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Body>
+          <Row>
+            <Col xs={6}>
+              <Col xs={12}>
+                <GatsbyImage image={getImage(activeItem?.Fotos[0].directus_files_id.imageFile)} alt={`${activeItem?.Titel}`} />
+              </Col>
+              <Row>
+                {activeItem?.Fotos.map((image) =>
+                  <Col xs={3}>
+                    <GatsbyImage image={getImage(image.directus_files_id.imageFile)} alt={`${activeItem?.Titel}`}/>
+                  </Col>
+                )}
+              </Row>
+            </Col>
+            <Col xs={6}>
+              <h2>{activeItem?.Titel}</h2>
+              <p>{activeItem?.Beschreibung}</p>
+              <p>{activeItem?.Preis} €</p>
+            </Col>
+          </Row>
+        </Modal.Body>
+      </Modal>
+    </div>
+  )
+}
+
 export default IndexPage
 
 export const Head: HeadFC = () => <title>Mario Howard Keramik</title>
@@ -225,7 +292,7 @@ export const query = graphql`
             id
             imageFile {
               childImageSharp {
-                gatsbyImageData(width: 1200, aspectRatio: 1)
+                gatsbyImageData(width: 1200, aspectRatio: 1, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
               }
             }
           }
