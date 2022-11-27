@@ -23,6 +23,7 @@ import Details from '../components/Details';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Mousewheel, Swiper as SwiperType } from 'swiper';
 import 'swiper/css';
+import ShopDetail from '../components/ShopDetail';
 
 SwiperCore.use([Mousewheel])
 
@@ -238,25 +239,7 @@ const Carousel = (data) => {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Body>
-          <Row>
-            <Col xs={6}>
-              <Col xs={12}>
-                <GatsbyImage image={getImage(activeItem?.Fotos[0].directus_files_id.imageFile)} alt={`${activeItem?.Titel}`} />
-              </Col>
-              <Row>
-                {activeItem?.Fotos.map((image) =>
-                  <Col xs={3}>
-                    <GatsbyImage image={getImage(image.directus_files_id.imageFile)} alt={`${activeItem?.Titel}`}/>
-                  </Col>
-                )}
-              </Row>
-            </Col>
-            <Col xs={6}>
-              <h2>{activeItem?.Titel}</h2>
-              <p>{activeItem?.Beschreibung}</p>
-              <p>{activeItem?.Preis} €</p>
-            </Col>
-          </Row>
+          <ShopDetail activeItem={activeItem}></ShopDetail>
         </Modal.Body>
       </Modal>
     </div>

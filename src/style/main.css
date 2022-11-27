@@ -78,3 +78,12 @@ h2 {
   border-radius: 0;
   background-color: #fffefb;
 }
+
+.swiper-thumbs .swiper-slide {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.swiper-thumbs .swiper-slide-thumb-active {
+  opacity: 1;
+}
