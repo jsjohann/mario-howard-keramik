@@ -32,7 +32,7 @@ const ShopDetail = (props) => {
   return (
     <Container fluid="xl" style={shopDetailStyle} className="p-0">
       <Row>
-          <Col xs={6}>
+          <Col xs={12} sm={6}>
             <Row className="mb-3">
               <Col xs={12}>
                 <Swiper
@@ -80,7 +80,7 @@ const ShopDetail = (props) => {
               </Col>
             </Row>
           </Col>
-          <Col xs={6} className="pt-2">
+          <Col xs={12} sm={6} className="pt-2">
             <h2>{activeItem?.Titel}</h2>
             <p>{activeItem?.Beschreibung}</p>
             <p>{activeItem?.Preis} €</p>
