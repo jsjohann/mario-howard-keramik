@@ -30,10 +30,10 @@ const ShopDetail = (props) => {
   }
 
   return (
-    <Container fluid="xl" style={shopDetailStyle} className="p-0">
+    <Container fluid="xl" style={shopDetailStyle} className="p-2">
       <Row>
-          <Col xs={12} sm={6}>
-            <Row className="mb-3">
+          <Col xs={12} md={6}>
+            <Row className="mb-4">
               <Col xs={12}>
                 <Swiper
                   modules = {[Thumbs, EffectFade]}
@@ -72,7 +72,7 @@ const ShopDetail = (props) => {
 
                       return (
                         <SwiperSlide key={node.Titel}>
-                          <GatsbyImage image={image} alt={`${activeItem?.Titel}`} />
+                          <GatsbyImage className="thumbnail-image" image={image} alt={`${activeItem?.Titel}`} />
                         </SwiperSlide>
                       )})
                     }
@@ -80,10 +80,10 @@ const ShopDetail = (props) => {
               </Col>
             </Row>
           </Col>
-          <Col xs={12} sm={6} className="pt-2">
+          <Col xs={12} md={6} className="ps-4 pt-5">
             <h2>{activeItem?.Titel}</h2>
-            <p>{activeItem?.Beschreibung}</p>
             <p>{activeItem?.Preis} €</p>
+            <p>{activeItem?.Beschreibung}</p>
           </Col>
         </Row>
       </Container>

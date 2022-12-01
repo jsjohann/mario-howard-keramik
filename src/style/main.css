@@ -82,8 +82,26 @@ h2 {
 .swiper-thumbs .swiper-slide {
   opacity: 0.6;
   cursor: pointer;
+  transition: opacity 250ms ease-in;
+}
+
+.swiper-thumbs .swiper-slide:not(.swiper-slide-thumb-active):hover {
+  opacity: 0.7;
 }
 
 .swiper-thumbs .swiper-slide-thumb-active {
   opacity: 1;
+}
+
+/* evtl. wieder raus */
+.swiper-thumbs .swiper-wrapper {
+  justify-content: center;
+}
+
+.gallery-image img {
+  transition: transform 250ms ease-in, opacity .25s linear!important;
+}
+
+.gallery-image:hover img {
+  transform: scale(1.15);
 }

@@ -219,7 +219,7 @@ const Carousel = (data) => {
 
           return (
             <SwiperSlide key={node.Titel} onClick={() => handleShow(node)} style={{ cursor: 'pointer' }}>
-              <GatsbyImage image={image} alt="{node.Titel}" />
+              <GatsbyImage className="gallery-image" image={image} alt="{node.Titel}" />
               <h3 style={{ fontSize: '1.1rem' }} className="mt-2 mb-0">{node.Titel}</h3>
               <p style={{ fontSize: '1.1rem' }}>{node.Preis} €</p>
             </SwiperSlide>
