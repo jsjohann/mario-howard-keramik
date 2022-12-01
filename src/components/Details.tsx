@@ -17,7 +17,7 @@ const Details = () => {
           </Col>
           <Col sx={6} className="d-flex flex-column">
             <div className="mb-4" style={{ flex: 1}}>
-              <video style={ { width: '100%', height: '100%', objectFit: 'cover' } } autoPlay loop muted>
+              <video style={ { width: '100%', height: '100%', objectFit: 'cover' } } autoPlay loop muted playsinline>
                 <source src={DetailsVideo} type="video/mp4" />
               </video>
             </div>

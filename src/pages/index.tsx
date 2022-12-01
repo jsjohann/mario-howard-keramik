@@ -85,7 +85,7 @@ const IndexPage = ({ data }) => {
       <Container fluid="xl" className="p-0">
         <Row>
           <Col>
-            <video style={ { width: '100%' } } autoPlay loop muted>
+            <video style={ { width: '100%' } } autoPlay loop muted playsInline>
               <source src={HeaderVideo} type="video/mp4" />
             </video>
           </Col>
