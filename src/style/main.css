@@ -9,7 +9,7 @@
 
 body {
   font-family: 'League Spartan', 'Futura', 'sans-serif';
-  font-size: 1.75rem;
+  font-size: 1.625rem;
   line-height: 1.5;
   background: #fffefb;
 }
@@ -33,6 +33,12 @@ h2 {
 
 .pe-6 {
   padding-right: 4.5rem!important;
+}
+
+.content-card {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.85);
 }
 
 .link {
@@ -70,10 +76,6 @@ h2 {
   opacity: 0.5;
 }
 
-.modal-dialog {
-  max-width: 90vw;
-}
-
 .modal-content {
   border-radius: 0;
   background-color: #fffefb;
@@ -93,15 +95,35 @@ h2 {
   opacity: 1;
 }
 
-/* evtl. wieder raus */
-.swiper-thumbs .swiper-wrapper {
-  justify-content: center;
-}
-
 .gallery-image img {
   transition: transform 250ms ease-in, opacity .25s linear!important;
 }
 
 .gallery-image:hover img {
   transform: scale(1.15);
+}
+
+@media (orientation: landscape) {
+  .header-video {
+    object-fit: cover;
+    aspect-ratio: 21 / 9
+  }
+}
+
+@media (orientation: portrait) {
+  .header-video {
+
+  }
+}
+
+@media (max-width: 575.98px) { 
+  .content-card {
+    position: relative;
+  }
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 75vw;
+  }
 }

@@ -8,7 +8,7 @@ const DatenschutzPage = ({ data }) => {
   return (
     <main>
       <Header color="red" position="relative"></Header>
-      <Container>
+      <Container className="p-4 ps-6 pe-6">
         <Row className="mb-4">
           <Col><h1>Datenschutz</h1></Col>
         </Row>

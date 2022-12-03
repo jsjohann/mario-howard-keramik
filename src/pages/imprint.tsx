@@ -12,7 +12,7 @@ const ImpressumPage = ({ data }) => {
   return (
     <main>
       <Header color="red" position="relative"></Header>
-      <Container style={imprintStyle}>
+      <Container style={imprintStyle} className="p-4 ps-6 pe-6">
         <Row className="mb-4">
           <Col><h1>Impressum</h1></Col>
         </Row>

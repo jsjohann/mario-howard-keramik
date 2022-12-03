@@ -35,9 +35,7 @@ const cardStyle = {
 };
 
 const cardContentStyle = {
-  position: 'absolute',
-  backgroundColor: 'rgba(255, 255, 255, 0.85)',
-  bottom: 0
+
 }
 
 const contactStyle = {
@@ -82,10 +80,10 @@ const IndexPage = ({ data }) => {
   return (
     <main>
       <Header color="white" position="absolute"></Header>
-      <Container fluid="xl" className="p-0">
+      <Container fluid className="p-0">
         <Row>
           <Col>
-            <video style={ { width: '100%' } } autoPlay loop muted playsInline>
+            <video className='header-video' style={{ width: '100%' }} autoPlay loop muted playsInline>
               <source src={HeaderVideo} type="video/mp4" />
             </video>
           </Col>
@@ -109,7 +107,7 @@ const IndexPage = ({ data }) => {
               <Row>
                 <Col sm={8} sm={{ span: 8, offset: node.Ausrichtung === 'left' ? 0 : 4 }}>
                   <div style={cardStyle}>
-                    <div style={cardContentStyle} className={node.Ausrichtung === 'left' ? 'p-4 ps-6 mb-4' : 'p-4 pe-6 mb-4'}>
+                    <div style={cardContentStyle} className={node.Ausrichtung === 'left' ? 'content-card p-4 ps-md-6 mb-md-4' : 'content-card p-4 pe-md-6 mb-md-4'}>
                       <h2>{node.Titel}</h2>
                       <p style={{ marginBottom: 0 }}>{node.Inhalt}</p>
                     </div>
@@ -127,7 +125,7 @@ const IndexPage = ({ data }) => {
         }
       })}
 
-      <Container fluid="xl" style={shopStyle} className="p-5 ps-6 pe-6">
+      <Container fluid="xl" style={shopStyle} className="p-4 p-md-5 ps-6 pe-6">
         <h2 className='mb-3'>Aktuelle Verkaufsobjekte</h2>
         <Row style={shopContainerStyle}>
 
@@ -137,38 +135,40 @@ const IndexPage = ({ data }) => {
         </Row>
       </Container>
 
-      <Container fluid="xl" style={contactStyle} className="p-5 ps-6 pe-6">
-        <Row>
-          <Col sm={6}>
-            <h2 className="mb-4">Anfahrt und Kontakt</h2>
-            <div style={contactContentStyle}>
-              <div style={contactContentListStyle} className="mb-5">
-                <FontAwesomeIcon icon={faLocationDot} fixedWidth />
-                <div className="ms-4">
-                  <span style={{ display: 'block' }}>Studio + Keramik</span>
-                  <span style={{ display: 'block' }}>Mario Howard</span>
-                  <span style={{ display: 'block' }}>Dorfstraße 7</span>
-                  <span style={{ display: 'block' }}>01468 Moritzburg (OT Friedewald)</span>
+      <Container fluid style={contactStyle} className="py-5 px-4 px-md-5">
+        <Container className="px-md-5">
+          <Row>
+            <Col sm={6}>
+              <h2 className="mb-4">Anfahrt und Kontakt</h2>
+              <div style={contactContentStyle}>
+                <div style={contactContentListStyle} className="mb-5">
+                  <FontAwesomeIcon icon={faLocationDot} fixedWidth />
+                  <div className="ms-4">
+                    <span style={{ display: 'block' }}>Studio + Keramik</span>
+                    <span style={{ display: 'block' }}>Mario Howard</span>
+                    <span style={{ display: 'block' }}>Dorfstraße 7</span>
+                    <span style={{ display: 'block' }}>01468 Moritzburg (OT Friedewald)</span>
+                  </div>
+                </div>
+                <div style={contactContentListStyle}>
+                  <FontAwesomeIcon icon={faEnvelopeOpenText} fixedWidth />
+                  <div className="ms-4">
+                    +49 (0) 172 / 814 20 59
+                  </div>
+                </div>
+                <div style={contactContentListStyle}>
+                  <FontAwesomeIcon icon={faPhone} fixedWidth />
+                  <div className="ms-4">
+                    mario.howard@gmx.de
+                  </div>
                 </div>
               </div>
-              <div style={contactContentListStyle}>
-                <FontAwesomeIcon icon={faEnvelopeOpenText} fixedWidth />
-                <div className="ms-4">
-                  +49 (0) 172 / 814 20 59
-                </div>
-              </div>
-              <div style={contactContentListStyle}>
-                <FontAwesomeIcon icon={faPhone} fixedWidth />
-                <div className="ms-4">
-                  mario.howard@gmx.de
-                </div>
-              </div>
-            </div>
-          </Col>
-          <Col sm={6}>
-            <Map></Map>
-          </Col>
-        </Row>
+            </Col>
+            <Col sm={6}>
+              <Map></Map>
+            </Col>
+          </Row>
+        </Container>
       </Container>
 
       <Footer></Footer>
@@ -261,7 +261,7 @@ export const query = graphql`
           id
           imageFile {
             childImageSharp {         
-              gatsbyImageData(width: 1200, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+              gatsbyImageData(width: 1320, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
             }
           }
         }
@@ -275,7 +275,7 @@ export const query = graphql`
             id
             imageFile {
               childImageSharp {
-                gatsbyImageData(width: 1200, aspectRatio: 1, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+                gatsbyImageData(width: 1320, aspectRatio: 1, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
               }
             }
           }

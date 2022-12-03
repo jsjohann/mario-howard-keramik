@@ -30,7 +30,7 @@ const ShopDetail = (props) => {
   }
 
   return (
-    <Container fluid="xl" style={shopDetailStyle} className="p-2">
+    <Container style={shopDetailStyle} className="p-2">
       <Row>
           <Col xs={12} md={6}>
             <Row className="mb-4">
@@ -43,11 +43,11 @@ const ShopDetail = (props) => {
                   thumbs={{ swiper: thumbsSwiper }}
                   effect={"fade"}
                 >
-                  {activeItem?.Fotos.map((node) => {
+                  {activeItem?.Fotos.map((node, index: number) => {
                     const image = getImage(node.directus_files_id.imageFile);
 
                     return (
-                      <SwiperSlide key={node.Titel}>
+                      <SwiperSlide key={`${activeItem?.Titel}-${index}`}>
                         <GatsbyImage image={image} alt={`${activeItem?.Titel}`} />
                       </SwiperSlide>
                     )})
@@ -65,13 +65,13 @@ const ShopDetail = (props) => {
                     freeMode={true}
                     slidesPerView = {4}
                     watchSlidesProgress={true}
-                    className="swiper-thumbs"
+                    className="swiper-thumbs px-3"
                   >
-                    {activeItem?.Fotos.map((node) => {
+                    {activeItem?.Fotos.map((node, index: number) => {
                       const image = getImage(node.directus_files_id.imageFile);
 
                       return (
-                        <SwiperSlide key={node.Titel}>
+                        <SwiperSlide key={`${activeItem?.Titel}-${index}`}>
                           <GatsbyImage className="thumbnail-image" image={image} alt={`${activeItem?.Titel}`} />
                         </SwiperSlide>
                       )})

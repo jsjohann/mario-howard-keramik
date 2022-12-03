@@ -10,7 +10,8 @@ const footerStyle = {
 
 const Footer = () => {
   return (
-    <Container fluid="xl" style={footerStyle} className="p-4 ps-6 pe-6">
+    <Container fluid style={footerStyle} className="px-md-5">
+      <Container className="p-4 px-md-5">
         <Row>
           <Col>
             <Link className='link' to='/'>Mario Howard</Link>
@@ -21,6 +22,7 @@ const Footer = () => {
           </Col>
         </Row>
       </Container>
+    </Container>
   )
 }
 

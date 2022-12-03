@@ -1,14 +1,13 @@
 import React from 'react'
-import { Container, Row, Col} from 'react-bootstrap';
+import { Container, Row, Col, Stack} from 'react-bootstrap';
 import logo from "../images/icon-red.svg";
 
 const logoStyle = {
-  position: 'absolute',
-  zIndex: 1
+  // position: 'absolute',
+  // zIndex: 1
 }
 
 const logoContainerStyle = {
-  display: 'flex'
 }
 
 const textContainerStyle = {
@@ -21,15 +20,17 @@ const textRed = {
 
 const Logo = () => {
   return (
-    <Container fluid="xl" style={logoStyle} className="p-5 ps-6 pe-6">
+    <Container fluid="xl" style={logoStyle} className="p-4 p-md-5 px-md-6">
         <Row className="justify-content-center">
-          <Col xs={4} style={logoContainerStyle}>
-            <img className="me-5" src={logo} alt="Logo Mario Howard" />
-            <div style={textContainerStyle}>
-              <h1>Mario</h1>
-              <h1>Howard</h1>
-              <h1 style={textRed}>Keramik</h1>
-            </div>
+          <Col xs={12} md={4} style={logoContainerStyle}>
+            <Stack direction="horizontal" gap={3}>
+              <img src={logo} alt="Logo Mario Howard" />
+              <div style={textContainerStyle}>
+                <h1>Mario</h1>
+                <h1>Howard</h1>
+                <h1 style={textRed}>Keramik</h1>
+              </div>
+            </Stack>
           </Col>
         </Row>
       </Container>

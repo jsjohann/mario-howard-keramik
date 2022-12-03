@@ -9,7 +9,7 @@ const headerStyle = {
 
 const Header = (props) => {
   return (
-    <Container fluid="xl" style={{ ...headerStyle, position: props.position}} className="p-4 ps-6 pe-6">
+    <Container fluid="xl" style={{ ...headerStyle, position: props.position}} className="p-4 px-md-6">
         <Row>
           <Col>
             <Link className='link' to='/'><img style={{ height: '3rem', width: 'auto' }} src={props.color === 'white' ? logoWhite : logoRed} alt="Logo Mario Howard" /></Link>
