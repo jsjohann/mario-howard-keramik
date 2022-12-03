@@ -50,7 +50,7 @@ export default function Map(){
   });
 
   return (
-    <div style={mapWraperStyle}>
+    <div style={mapWraperStyle} className="map-wrapper">
       <div ref={mapContainer} style={mapContainerStyle} />
     </div>
   );
