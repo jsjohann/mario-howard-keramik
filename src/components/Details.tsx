@@ -37,7 +37,7 @@ const Details = () => {
   }
 
   const updateImageOnScroll = (html: HTMLElement) => {
-    const windowHeight = window.innerHeight;
+    const windowHeight = window?.innerHeight ?? 0;
     const elementHeight = canvas.current.scrollHeight;
     const currentPosition = canvas.current.getBoundingClientRect().y + elementHeight;
     const delta = windowHeight + elementHeight;
@@ -50,11 +50,14 @@ const Details = () => {
   useEffect(() => {
     const onScroll = () => updateImageOnScroll(document.documentElement);
     img.src = currentFrame(0);
-    canvas.current.width = canvas.current.clientWidth * window.devicePixelRatio;
-    canvas.current.height = canvas.current.clientHeight * window.devicePixelRatio;
+    canvas.current.width = canvas.current.clientWidth * (window?.devicePixelRatio ?? 1);
+    canvas.current.height = canvas.current.clientHeight * (window?.devicePixelRatio ?? 1);
     // clean up code
-    window.removeEventListener('scroll', onScroll);
-    window.addEventListener('scroll', onScroll, { passive: true });
+    if (window) {
+      window.removeEventListener('scroll', onScroll);
+      window.addEventListener('scroll', onScroll, { passive: true });
+    }
+    
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
