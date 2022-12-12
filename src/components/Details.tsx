@@ -18,10 +18,6 @@ const Details = () => {
   const canvas = useRef(null);
 
   let img = null;
-  
-  img.onload = function(){
-    drawImage();
-  }
 
   const updateImage = (frameIndex: number) => {
     img.src = currentFrame(frameIndex);
@@ -50,6 +46,9 @@ const Details = () => {
   useEffect(() => {
     const onScroll = () => updateImageOnScroll(document.documentElement);
     img = new Image();
+    img.onload = function(){
+      drawImage();
+    }
     img.src = currentFrame(0);
     canvas.current.width = canvas.current.clientWidth * window.devicePixelRatio;
     canvas.current.height = canvas.current.clientHeight * window.devicePixelRatio;
