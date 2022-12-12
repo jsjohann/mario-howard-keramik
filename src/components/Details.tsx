@@ -17,7 +17,7 @@ const Details = () => {
 
   const canvas = useRef(null);
 
-  const img = new Image()
+  const img = new Image();
   
   img.onload = function(){
     drawImage();
