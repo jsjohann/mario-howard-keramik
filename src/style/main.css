@@ -112,7 +112,8 @@ h2 {
 
 @media (orientation: portrait) {
   .header-video {
-
+    object-fit: cover;
+    aspect-ratio: 7 / 8;
   }
 }
 
