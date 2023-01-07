@@ -4,7 +4,8 @@ const config: GatsbyConfig = {
   pathPrefix: '/',
   siteMetadata: {
     title: `Mario Howard Keramik`,
-    siteUrl: `https://mario-howard.de`
+    siteUrl: `https://mario-howard.de`,
+    description: `Einzigartige Keramik von Mario Howard aus eigener Keramikwerkstatt in Dippelsdorf bei Moritzburg.`
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
