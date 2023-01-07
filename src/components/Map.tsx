@@ -35,7 +35,7 @@ export default function Map(){
 
     map.current = new maplibregl.Map({
       container: mapContainer.current,
-      style: `https://jsjohann.github.io/mario-howard-keramik/map/style.json`,
+      style: `https://mario-howard.de/map/style.json`,
       center: [lng, lat],
       zoom: zoom,
       minZoom: 11,
