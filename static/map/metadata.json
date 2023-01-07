@@ -3,7 +3,7 @@
   "scheme": "xyz",
   "type": "baselayer",
   "format": "pbf",
-  "tiles": ["https://jsjohann.github.io/mario-howard-keramik/map/{z}/{x}/{y}.pbf"],
+  "tiles": ["https://mario-howard.de/map/{z}/{x}/{y}.pbf"],
   "bounds": [12.95, 50.8, 14.45, 51.3],
   "name": "Tilemaker to OpenMapTiles schema",
   "version": "3.0",

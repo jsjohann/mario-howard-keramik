@@ -90,31 +90,27 @@ const IndexPage = ({ data }) => {
         </Row>
       </Container>
       <Logo></Logo>
-      {data.directus.Inhaltsobjekte.map((node, index) => {
-
-        if (index === 5) {
-          return (
-            <Details key={index}></Details>
-          )
-        }
-
+      {data.directus.Inhaltsobjekte.map((node, index: number) => {
         const image = getImage(node.Bild.imageFile);
 
         if (node.Titel) {
            return (
-            <Container fluid="xl" key={node.Titel} className="p-0 mb-4">
-              <GatsbyImage image={image} alt="{node.Titel}" />
-              <Row>
-                <Col sm={8} sm={{ span: 8, offset: node.Ausrichtung === 'left' ? 0 : 4 }}>
-                  <div style={cardStyle}>
-                    <div style={cardContentStyle} className={node.Ausrichtung === 'left' ? 'content-card p-4 ps-md-6 mb-md-4' : 'content-card p-4 pe-md-6 mb-md-4'}>
-                      <h2>{node.Titel}</h2>
-                      <p style={{ marginBottom: 0 }}>{node.Inhalt}</p>
+            <>
+              {index === 5 && <Details key={`${index}-detail`}></Details>}
+              <Container fluid="xl" key={node.Titel} className="p-0 mb-4">
+                <GatsbyImage image={image} alt="{node.Titel}" />
+                <Row>
+                  <Col sm={8} sm={{ span: 8, offset: node.Ausrichtung === 'left' ? 0 : 4 }}>
+                    <div style={cardStyle}>
+                      <div style={cardContentStyle} className={node.Ausrichtung === 'left' ? 'content-card p-4 ps-md-6 mb-md-4' : 'content-card p-4 pe-md-6 mb-md-4'}>
+                        <h2>{node.Titel}</h2>
+                        <p style={{ marginBottom: 0 }}>{node.Inhalt}</p>
+                      </div>
                     </div>
-                  </div>
-                </Col>
-              </Row>
-            </Container>
+                  </Col>
+                </Row>
+              </Container>
+            </>
           ) 
         } else {
           return (
@@ -214,11 +210,11 @@ const Carousel = (data) => {
           }
         }}
       >
-        {data.directus.Verkaufsobjekte.map((node) => {
+        {data.directus.Verkaufsobjekte.map((node, index) => {
           const image = getImage(node.Fotos[0].directus_files_id.imageFile);
 
           return (
-            <SwiperSlide key={node.Titel} onClick={() => handleShow(node)} style={{ cursor: 'pointer' }}>
+            <SwiperSlide key={`${node.Titel}-${index}`} onClick={() => handleShow(node)} style={{ cursor: 'pointer' }}>
               <GatsbyImage className="gallery-image" image={image} alt="{node.Titel}" />
               <h3 style={{ fontSize: '1.1rem' }} className="mt-2 mb-0">{node.Titel}</h3>
               <p style={{ fontSize: '1.1rem' }}>{node.Preis} €</p>
