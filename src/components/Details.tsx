@@ -63,7 +63,7 @@ const Details = (props) => {
               <Col xs={6} className="d-flex flex-column">
                 <div className="mb-4" style={{ position: 'relative', flex: 1, overflow: 'hidden', whiteSpace: 'nowrap'}} ref={container}>
                   {data.photos.edges.map((img, index) => (
-                    <GatsbyImage loading="eager" style={{ position: 'absolute', left: 0, top: 0, width: '100%', height: '100%', opacity: img.node.name === `animation-detail${(currentIndex * 2).toString().padStart(3, '0')}` ? 1 : 0, willChange: 'opacity', transform: 'translateZ(0)' }} objectFit={'cover'} image={getImage(img.node)} key={index} alt={`Detailaufnahme bei der Arbeit Bildsequenz Index ${index}`} />
+                    <GatsbyImage loading="eager" style={{ position: 'absolute', left: 0, top: 0, width: '100%', height: '100%', display: index === currentIndex ? 'block' : 'none', willChange: 'display', transform: 'translateZ(0)' }} objectFit={'cover'} image={getImage(img.node)} key={index} alt={`Detailaufnahme bei der Arbeit Bildsequenz Index ${index}`} />
                   ))}
                 </div>
                 <div style={{ flex: 1}}>
