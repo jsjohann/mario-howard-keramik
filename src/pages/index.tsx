@@ -95,9 +95,9 @@ const IndexPage = ({ data }) => {
 
         if (node.Titel) {
            return (
-            <>
+            <div key={`${index}`}>
               {index === 5 && <Details key={`${index}-detail`}></Details>}
-              <Container fluid="xl" key={node.Titel} className="p-0 mb-4">
+              <Container fluid="xl" key={`${index}-${node.Titel}`} className="p-0 mb-4">
                 <GatsbyImage image={image} alt="{node.Titel}" />
                 <Row>
                   <Col sm={8} sm={{ span: 8, offset: node.Ausrichtung === 'left' ? 0 : 4 }}>
@@ -110,11 +110,11 @@ const IndexPage = ({ data }) => {
                   </Col>
                 </Row>
               </Container>
-            </>
+            </div>
           ) 
         } else {
           return (
-            <Container fluid="xl" key={node.Titel} className="p-0 mb-4">
+            <Container fluid="xl" key={`${index}-${node.Titel}`} className="p-0 mb-4">
               <GatsbyImage image={image} alt="{node.Titel}" />
             </Container>
           )
