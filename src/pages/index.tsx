@@ -244,7 +244,13 @@ const Carousel = (data) => {
 
 export default IndexPage
 
-export const Head: HeadFC = () => <title>Mario Howard Keramik</title>
+export const Head: HeadFC = () => (
+  <>
+    <title>Mario Howard Keramik</title>
+    <meta name="description" content="Einzigartige Keramik von Mario Howard aus eigener Keramikwerkstatt in Dippelsdorf bei Moritzburg." />
+    <meta name="theme-color" content="#B23929" />
+  </>
+)
 
 export const query = graphql`
   query {

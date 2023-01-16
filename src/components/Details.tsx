@@ -43,6 +43,7 @@ const Details = (props) => {
     preloadImages();
     renderCanvas();
     window.addEventListener('scroll', handleScroll);
+    console.log('init effect');
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -52,12 +53,13 @@ const Details = (props) => {
       return;
     }
 
-    const context = canvasRef.current.getContext('2d');
+    const canvas: HTMLCanvasElement = canvasRef.current;
+    const context = canvas.getContext('2d');
+    
     let requestId: number;
 
     const render = () => {
       const img: HTMLImageElement = images[frameIndex]
-      const canvas: HTMLCanvasElement = canvasRef.current;
 
       if (!img || !canvas) {
         return;
@@ -86,10 +88,9 @@ const Details = (props) => {
       const y = (canvas.height - imageHeight) / 2;
 
       context.drawImage(img, x, y, imageWidth, imageHeight);
-      requestId = requestAnimationFrame(render);
     };
 
-    render();
+    requestId = requestAnimationFrame(render);
 
     return () => cancelAnimationFrame(requestId);
   }, [frameIndex, images]);
@@ -97,16 +98,16 @@ const Details = (props) => {
   return (
     <Container fluid="xl" className="p-0 mb-4">
       <Row>
-        <Col xs={6}>
+        <Col xs={12} md={6} className="mb-4 mb-md-0">
           <StaticImage src="../assets/Einblick.jpg" alt="Einblick in die Werkstatt"></StaticImage>
         </Col>
-        <Col xs={6} className="d-flex flex-column">
-          <div className="mb-4" style={{ position: 'relative', flex: 1, overflow: 'hidden', whiteSpace: 'nowrap'}} ref={container}>
+        <Col xs={12} md={6} className="d-flex flex-column">
+          <Col xs={12} className="mb-4" style={{ position: 'relative', flex: 1, overflow: 'hidden', whiteSpace: 'nowrap'}} ref={container}>
             <canvas style={{ height: '100%', width: '100%'}} ref={canvasRef} />
-          </div>
-          <div style={{ flex: 1}}>
+          </Col>
+          <Col xs={12} style={{ flex: 1}}>
             <StaticImage style={{ height: '100%' }} src="../assets/Detail.jpg" alt="Detailaufnahme bei der Arbeit"></StaticImage>
-          </div>
+          </Col>
         </Col>
       </Row>
     </Container>
