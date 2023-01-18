@@ -14,6 +14,10 @@ body {
   background: #fffefb;
 }
 
+main {
+  overflow: hidden;
+}
+
 h1 {
   font-size: 3rem;
   font-weight: 600;
@@ -113,11 +117,32 @@ h2 {
 @media (orientation: portrait) {
   .header-video {
     object-fit: cover;
-    aspect-ratio: 7 / 8;
+    aspect-ratio: 7 / 9;
   }
 }
 
 @media (max-width: 575.98px) { 
+  body  {
+    font-size: 1.525rem;
+    line-height: 1.4;
+  }
+
+  h1 {
+    font-size: 2.8rem;
+  }
+
+  h2 {
+    font-size: 2.1rem;
+  }
+
+  .ps-6 {
+    padding-left: 2rem!important;
+  }
+
+  .pe-6 {
+    padding-right: 2rem!important;
+  }
+
   .content-card {
     position: relative;
   }
@@ -131,4 +156,9 @@ h2 {
   .modal-dialog {
     max-width: 75vw;
   }
+}
+
+a[href^="tel"] {
+  color: inherit;
+  text-decoration: none;
 }

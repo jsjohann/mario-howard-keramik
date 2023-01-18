@@ -121,9 +121,9 @@ const IndexPage = ({ data }) => {
         }
       })}
 
-      <Container fluid="xl" style={shopStyle} className="p-4 p-md-5 ps-6 pe-6">
+      <Container fluid="xl" style={shopStyle} className="p-4">
         <h2 className='mb-3'>Aktuelle Verkaufsobjekte</h2>
-        <Row style={shopContainerStyle}>
+        <Row style={shopContainerStyle} className="p-md-5 ps-6 pe-6">
 
           {data.directus.Verkaufsobjekte.length ? 
             Carousel(data) : <p>Aktuell werden keine Objekte zum Verkauf angeboten. Schauen Sie gern zu einem späteren Zeitpunkt noch einmal vorbei oder nutzen Sie die untenstehenden Kontaktmöglichkeiten.</p>
@@ -143,7 +143,8 @@ const IndexPage = ({ data }) => {
                     <span style={{ display: 'block' }}>Studio + Keramik</span>
                     <span style={{ display: 'block' }}>Mario Howard</span>
                     <span style={{ display: 'block' }}>Dorfstraße 7</span>
-                    <span style={{ display: 'block' }}>01468 Moritzburg (OT Friedewald)</span>
+                    <span style={{ display: 'block' }}>01468 Moritzburg</span>
+                    <span style={{ display: 'block' }}>(OT Friedewald)</span>
                   </div>
                 </div>
                 <div style={contactContentListStyle}>
@@ -160,7 +161,7 @@ const IndexPage = ({ data }) => {
                 </div>
               </div>
             </Col>
-            <Col sm={6} className="mt-xs-4 mt-md-0">
+            <Col sm={6} className="mt-4 mt-md-0 p-0">
               <Map></Map>
             </Col>
           </Row>
@@ -249,6 +250,7 @@ export const Head: HeadFC = () => (
     <title>Mario Howard Keramik</title>
     <meta name="description" content="Einzigartige Keramik von Mario Howard aus eigener Keramikwerkstatt in Dippelsdorf bei Moritzburg." />
     <meta name="theme-color" content="#B23929" />
+    <meta name="format-detection" content="telephone=no" />
   </>
 )
 
