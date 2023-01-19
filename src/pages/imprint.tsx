@@ -27,7 +27,14 @@ const ImpressumPage = ({ data }) => {
 
 export default ImpressumPage
 
-export const Head: HeadFC = () => <title>Not found</title>
+export const Head: HeadFC = () => (
+  <>
+    <title>Mario Howard – Impressum</title>
+    <meta name='robots' content='noindex,nofollow' />
+    <meta name="theme-color" content="#B23929" />
+    <meta name="format-detection" content="telephone=no" />
+  </>
+)
 
 export const query = graphql`
   query {

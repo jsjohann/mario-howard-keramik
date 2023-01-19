@@ -23,8 +23,14 @@ const DatenschutzPage = ({ data }) => {
 
 export default DatenschutzPage
 
-export const Head: HeadFC = () => <title>Not found</title>
-
+export const Head: HeadFC = () => (
+  <>
+    <title>Mario Howard – Datenschutz</title>
+    <meta name='robots' content='noindex,nofollow' />
+    <meta name="theme-color" content="#B23929" />
+    <meta name="format-detection" content="telephone=no" />
+  </>
+)
 export const query = graphql`
   query {
     directus {

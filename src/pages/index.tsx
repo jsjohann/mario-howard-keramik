@@ -84,8 +84,8 @@ const IndexPage = ({ data }) => {
         <Row>
           <Col>
             <video className='header-video' preload="metadata" style={{ width: '100%' }} autoPlay loop muted playsInline>
-              <source src={HeaderVideo4k265} type='video/mp4; codecs="hev1"' />
-              <source src={HeaderVideo4k264} type='video/mp4; codecs="avc1.42E01E"' />
+              <source src={HeaderVideo4k265} type='video/mp4; codecs="hvc1"' />
+              <source src={HeaderVideo4k264} type='video/mp4; codecs="avc1"' />
             </video>
           </Col>
         </Row>
@@ -248,8 +248,8 @@ export default IndexPage
 
 export const Head: HeadFC = () => (
   <>
-    <title>Mario Howard Keramik</title>
-    <meta name="description" content="Einzigartige Keramik von Mario Howard aus eigener Keramikwerkstatt in Dippelsdorf bei Moritzburg." />
+    <title>Mario Howard – Keramikstudio bei Moritzburg</title>
+    <meta name="description" content="Einzigartige Keramiken entstehen durch Wechselfeuertechnik im klassischen Zweibrandverfahren in der Werkstatt von Mario Howard bei Moritzburg." />
     <meta name="theme-color" content="#B23929" />
     <meta name="format-detection" content="telephone=no" />
   </>
