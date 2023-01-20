@@ -4,6 +4,8 @@ import { graphql, HeadFC } from "gatsby"
 import HeaderVideo4k264 from "../assets/header-video-4k-264.mp4";
 import HeaderVideo4k265 from "../assets/header-video-4k-265.mp4";
 
+import Poster from '../assets/poster-header.jpg';
+
 import { Container, Row, Col, Modal} from 'react-bootstrap';
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -83,7 +85,7 @@ const IndexPage = ({ data }) => {
       <Container fluid className="p-0">
         <Row>
           <Col>
-            <video className='header-video' preload="metadata" style={{ width: '100%' }} autoPlay loop muted playsInline>
+            <video className='header-video' preload="metadata" style={{ width: '100%' }} autoPlay loop muted playsInline poster={Poster}>
               <source src={HeaderVideo4k265} type='video/mp4; codecs="hvc1"' />
               <source src={HeaderVideo4k264} type='video/mp4; codecs="avc1"' />
             </video>

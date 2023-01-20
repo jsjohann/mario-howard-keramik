@@ -38,7 +38,13 @@ const config: GatsbyConfig = {
 					// password: "mysecretpassword",
 				},*/
 			},
-		}
+		},
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        exclude: ['/imprint', '/datenschutz'],
+      },
+    }
   ]
 };
 
