@@ -42,7 +42,7 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
-        exclude: ['/imprint', '/datenschutz'],
+        excludes: ['/imprint', '/datenschutz'],
       },
     }
   ]
