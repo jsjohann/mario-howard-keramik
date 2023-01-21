@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Container, Row, Col} from 'react-bootstrap';
 import { StaticImage } from 'gatsby-plugin-image';
-import DetailVideo from "../assets/detail-video-2.mp4";
+import DetailVideo from "../assets/detail-video.mp4";
 
-import Poster from '../assets/poster-detail.jpg';
 const Details = (props) => {
 
   return (
@@ -14,7 +13,7 @@ const Details = (props) => {
         </Col>
         <Col xs={12} md={6} className="d-flex flex-column">
           <Col xs={12} className="mb-4" style={{ position: 'relative', flex: 1, overflow: 'hidden', whiteSpace: 'nowrap'}}>
-            <video preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'cover' }} autoPlay loop muted playsInline poster={Poster}>
+            <video preload="metadata" style={{ width: '100%', height: '100%', objectFit: 'cover' }} autoPlay loop muted playsInline>
               <source src={DetailVideo} type='video/mp4' />
             </video>
           </Col>

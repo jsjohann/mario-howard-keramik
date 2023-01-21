@@ -87,7 +87,7 @@ const IndexPage = ({ data }) => {
           <Col>
             <video className='header-video' preload="metadata" style={{ width: '100%' }} autoPlay loop muted playsInline poster={Poster}>
               <source src={HeaderVideo4k265} type='video/mp4; codecs="hvc1"' />
-              <source src={HeaderVideo4k264} type='video/mp4; codecs="avc1"' />
+              <source src={HeaderVideo4k264} type='video/mp4;' />
             </video>
           </Col>
         </Row>
