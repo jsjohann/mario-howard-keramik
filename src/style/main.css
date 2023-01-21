@@ -123,8 +123,8 @@ h2 {
 
 @media (max-width: 575.98px) { 
   body  {
-    font-size: 1.525rem;
-    line-height: 1.4;
+    font-size: 1.35rem;
+    line-height: 1.5;
   }
 
   h1 {
@@ -132,7 +132,7 @@ h2 {
   }
 
   h2 {
-    font-size: 2.1rem;
+    font-size: 1.8rem;
   }
 
   .ps-6 {

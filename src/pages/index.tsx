@@ -140,7 +140,7 @@ const IndexPage = ({ data }) => {
             <Col sm={6}>
               <h2 className="mb-4">Anfahrt und Kontakt</h2>
               <div style={contactContentStyle}>
-                <div style={contactContentListStyle} className="mb-5">
+                <div style={contactContentListStyle} className="mb-4">
                   <FontAwesomeIcon icon={faLocationDot} fixedWidth />
                   <div className="ms-4">
                     <span style={{ display: 'block' }}>Studio + Keramik</span>
@@ -251,7 +251,7 @@ export default IndexPage
 export const Head: HeadFC = () => (
   <>
     <title>Mario Howard – Keramikstudio bei Moritzburg</title>
-    <meta name="description" content="Einzigartige Keramiken entstehen durch Wechselfeuertechnik im klassischen Zweibrandverfahren in der Werkstatt von Mario Howard bei Moritzburg." />
+    <meta name="description" content="Einzigartige Keramik-Kunst entstehen durch Wechselfeuertechnik im klassischen Zweibrandverfahren in der Werkstatt von Mario Howard bei Moritzburg." />
     <meta name="theme-color" content="#B23929" />
     <meta name="format-detection" content="telephone=no" />
   </>
