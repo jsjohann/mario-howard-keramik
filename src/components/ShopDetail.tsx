@@ -40,7 +40,12 @@ const ShopDetail = (props) => {
                     modules = {[Thumbs, FreeMode]}
                     mousewheel = {{ }}
                     freeMode={true}
-                    slidesPerView = {5}
+                    slidesPerView = {4}
+                    breakpoints = {{
+                      576: {
+                        slidesPerView: 5
+                      }
+                    }}
                     spaceBetween = {24}
                     watchSlidesProgress={true}
                     className="swiper-thumbs"
@@ -58,7 +63,7 @@ const ShopDetail = (props) => {
                     }
                 </Swiper>
               </Col>
-              <Col xs={10}>
+              <Col xs={10} className="pe-2">
                 <Swiper
                   modules = {[Thumbs, EffectFade]}
                   mousewheel = {{ }}
@@ -80,10 +85,10 @@ const ShopDetail = (props) => {
               </Col>
             </Row>
           </Col>
-          <Col xs={10} xs={{ offset: 2 }} className="ps-3 pt-2">
+          <Col xs={10} xs={{ offset: 2 }} className="ps-3 pt-0">
             <h2 style={{ marginBottom: '0.1rem'}}>{activeItem?.Titel}</h2>
             <p className="text-description">Höhe: {activeItem?.Hoehe} cm, Durchmesser: {activeItem?.Durchmesser} cm</p>
-            <p style={{ marginBottom: 0, lineHeight: 1, fontWeight: 500 }}>{activeItem?.Preis} €</p>
+            <p style={{ marginBottom: 0, lineHeight: 1 }}>{activeItem?.Preis} €</p>
             <p className="text-small">Preis ohne MwSt. (Kleinunternehmerregelung)</p>
             <p className="text-description">{activeItem?.Beschreibung}</p>
           </Col>

@@ -37,7 +37,17 @@ h2 {
 }
 
 .text-description, .text-small {
-  font-size: 1.1rem;
+  font-size: 1.1rem;  font-weight: 300;
+
+}
+
+.modal-backdrop {
+  backdrop-filter: blur(3px);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal-backdrop.show {
+  opacity: 1;
 }
 
 .ps-6 {
