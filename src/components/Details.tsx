@@ -6,7 +6,7 @@ import DetailVideo from "../assets/detail-video.mp4";
 const Details = (props) => {
 
   return (
-    <Container fluid="xl" className="p-0 mb-4">
+    <Container fluid="lg" className="p-0 mb-4">
       <Row>
         <Col xs={12} md={6} className="mb-4 mb-md-0">
           <StaticImage src="../assets/Einblick.jpg" alt="Einblick in die Werkstatt"></StaticImage>

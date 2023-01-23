@@ -33,7 +33,8 @@ SwiperCore.use([Mousewheel])
 // config.autoAddCss = false
 
 const cardStyle = {
-  position: 'relative'
+  position: 'relative',
+  height: '100%'
 };
 
 const cardContentStyle = {
@@ -96,14 +97,16 @@ const IndexPage = ({ data }) => {
       {data.directus.Inhaltsobjekte.map((node, index: number) => {
         const image = getImage(node.Bild.imageFile);
 
-        if (node.Titel) {
+          if (node.Titel) {
            return (
             <div key={`${index}`}>
               {index === 5 && <Details key={`${index}-detail`}></Details>}
-              <Container fluid="xl" key={`${index}-${node.Titel}`} className="p-0 mb-4">
-                <GatsbyImage image={image} alt="{node.Titel}" />
+              <Container fluid="lg" key={`${index}-${node.Titel}`} className="p-0 mb-4">
                 <Row>
-                  <Col sm={8} sm={{ span: 8, offset: node.Ausrichtung === 'left' ? 0 : 4 }}>
+                  <Col xs={12} xl={{ span: 8, offset: node.Ausrichtung === 'right' ? 0  : 4 }}>
+                    <GatsbyImage image={image} alt="{node.Titel}" />
+                  </Col>
+                  <Col sm={8} sm={{ span: 8, offset: node.Ausrichtung === 'left' ? 0 : 4 }} xl={{ span: 5, offset: node.Ausrichtung === 'left' ? 0 : 7 }}>
                     <div style={cardStyle}>
                       <div style={cardContentStyle} className={node.Ausrichtung === 'left' ? 'content-card p-4 ps-md-6 mb-md-4' : 'content-card p-4 pe-md-6 mb-md-4'}>
                         <h2>{node.Titel}</h2>
@@ -114,19 +117,23 @@ const IndexPage = ({ data }) => {
                 </Row>
               </Container>
             </div>
-          ) 
+          )
         } else {
           return (
-            <Container fluid="xl" key={`${index}-${node.Titel}`} className="p-0 mb-4">
-              <GatsbyImage image={image} alt="{node.Titel}" />
+            <Container fluid="lg" key={`${index}-${node.Titel}`} className="p-0 mb-4">
+              <Row>
+                <Col xl={{ span: 8, offset: 4 }}>
+                  <GatsbyImage image={image} alt="{node.Titel}" />
+                </Col>
+              </Row>
             </Container>
           )
         }
       })}
 
-      <Container fluid="xl" style={shopStyle} className="p-4">
+      <Container fluid="lg" style={shopStyle} className="p-4">
         <h2 className='mb-3'>Aktuelle Verkaufsobjekte</h2>
-        <Row style={shopContainerStyle} className="p-md-5 ps-6 pe-6">
+        <Row style={shopContainerStyle} className="pt-2 px-6">
 
           {data.directus.Verkaufsobjekte.length ? 
             Carousel(data) : <p>Aktuell werden keine Objekte zum Verkauf angeboten. Schauen Sie gern zu einem späteren Zeitpunkt noch einmal vorbei oder nutzen Sie die untenstehenden Kontaktmöglichkeiten.</p>
@@ -134,8 +141,8 @@ const IndexPage = ({ data }) => {
         </Row>
       </Container>
 
-      <Container fluid style={contactStyle} className="py-5 px-4 px-md-5">
-        <Container className="px-md-5">
+      <Container fluid style={contactStyle} className="py-5 px-4 px-lg-5">
+        <Container fluid="lg" className="px-lg-4 mx-0 px-0 mx-lg-auto">
           <Row>
             <Col sm={6}>
               <h2 className="mb-4">Anfahrt und Kontakt</h2>

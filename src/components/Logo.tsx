@@ -20,10 +20,10 @@ const textRed = {
 
 const Logo = () => {
   return (
-    <Container fluid="xl" style={logoStyle} className="p-4 p-md-5 px-md-6">
+    <Container fluid="lg" style={logoStyle} className="p-4 p-md-5 px-md-6">
         <Row className="justify-content-center">
-          <Col xs={12} md={4} style={logoContainerStyle}>
-            <Stack direction="horizontal" gap={3}>
+          <Col xs={12} md={6} style={logoContainerStyle}>
+            <Stack direction="horizontal" gap={3} className="justify-content-center">
               <img src={logo} alt="Logo Mario Howard" />
               <div style={textContainerStyle}>
                 <h1>Mario</h1>
