@@ -31,6 +31,15 @@ h2 {
   letter-spacing: 0.03rem;
 }
 
+.text-small {
+  color: #888888;
+  font-weight: 300;
+}
+
+.text-description, .text-small {
+  font-size: 1.1rem;
+}
+
 .ps-6 {
   padding-left: 4.5rem!important;
 }
@@ -80,9 +89,18 @@ h2 {
   opacity: 0.5;
 }
 
+.modal-header {
+  border: none;
+}
+
+.modal-body {
+  padding-top: 0;
+}
+
 .modal-content {
   border-radius: 0;
   background-color: #fffefb;
+  border: none;
 }
 
 .swiper-thumbs .swiper-slide {
@@ -99,12 +117,16 @@ h2 {
   opacity: 1;
 }
 
+.swiper-button-next, .swiper-button-prev {
+  color: #B23929!important;
+}
+
 .gallery-image img {
   transition: transform 250ms ease-in, opacity .25s linear!important;
 }
 
 .gallery-image:hover img {
-  transform: scale(1.15);
+  transform: scale(1.05);
 }
 
 @media (orientation: landscape) {
@@ -150,11 +172,16 @@ h2 {
   .map-wrapper {
     aspect-ratio: 1;
   }
+
+  .modal-content {
+    background-color: #fffefbdd;
+    backdrop-filter: blur(3px);
+  }
 }
 
 @media (min-width: 576px) {
   .modal-dialog {
-    max-width: 75vw;
+    max-width: 60vw;
   }
 }
 

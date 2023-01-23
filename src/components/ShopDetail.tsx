@@ -30,11 +30,35 @@ const ShopDetail = (props) => {
   }
 
   return (
-    <Container style={shopDetailStyle} className="p-2">
+    <Container style={shopDetailStyle} className="p-2 pt-0">
       <Row>
-          <Col xs={12} md={6}>
+          <Col xs={12}>
             <Row className="mb-4">
-              <Col xs={12}>
+              <Col xs={2} className="px-0 px-md-2">
+                <Swiper
+                    onSwiper={setThumbsSwiper}
+                    modules = {[Thumbs, FreeMode]}
+                    mousewheel = {{ }}
+                    freeMode={true}
+                    slidesPerView = {5}
+                    spaceBetween = {24}
+                    watchSlidesProgress={true}
+                    className="swiper-thumbs"
+                    style={{ height: '100%' }}
+                    direction={"vertical"}
+                  >
+                    {activeItem?.Fotos.map((node, index: number) => {
+                      const image = getImage(node.directus_files_id.imageFile);
+
+                      return (
+                        <SwiperSlide key={`${activeItem?.Titel}-${index}`}>
+                          <GatsbyImage className="thumbnail-image" image={image} alt={`${activeItem?.Titel}`} />
+                        </SwiperSlide>
+                      )})
+                    }
+                </Swiper>
+              </Col>
+              <Col xs={10}>
                 <Swiper
                   modules = {[Thumbs, EffectFade]}
                   mousewheel = {{ }}
@@ -55,35 +79,13 @@ const ShopDetail = (props) => {
                 </Swiper>
               </Col>
             </Row>
-            <Row>
-              <Col xs={12}>
-                <Swiper
-                    onSwiper={setThumbsSwiper}
-                    modules = {[Thumbs, FreeMode]}
-                    mousewheel = {{ }}
-                    spaceBetween = {24}
-                    freeMode={true}
-                    slidesPerView = {4}
-                    watchSlidesProgress={true}
-                    className="swiper-thumbs px-3"
-                  >
-                    {activeItem?.Fotos.map((node, index: number) => {
-                      const image = getImage(node.directus_files_id.imageFile);
-
-                      return (
-                        <SwiperSlide key={`${activeItem?.Titel}-${index}`}>
-                          <GatsbyImage className="thumbnail-image" image={image} alt={`${activeItem?.Titel}`} />
-                        </SwiperSlide>
-                      )})
-                    }
-                </Swiper>
-              </Col>
-            </Row>
           </Col>
-          <Col xs={12} md={6} className="ps-4 pt-5">
-            <h2>{activeItem?.Titel}</h2>
-            <p>{activeItem?.Preis} €</p>
-            <p>{activeItem?.Beschreibung}</p>
+          <Col xs={10} xs={{ offset: 2 }} className="ps-3 pt-2">
+            <h2 style={{ marginBottom: '0.1rem'}}>{activeItem?.Titel}</h2>
+            <p className="text-description">Höhe: {activeItem?.Hoehe} cm, Durchmesser: {activeItem?.Durchmesser} cm</p>
+            <p style={{ marginBottom: 0, lineHeight: 1, fontWeight: 500 }}>{activeItem?.Preis} €</p>
+            <p className="text-small">Preis ohne MwSt. (Kleinunternehmerregelung)</p>
+            <p className="text-description">{activeItem?.Beschreibung}</p>
           </Col>
         </Row>
       </Container>

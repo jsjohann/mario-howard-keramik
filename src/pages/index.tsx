@@ -237,7 +237,10 @@ const Carousel = (data) => {
         </div>
       </div>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} dialogClassName="detail-modal" fullscreen="sm-down">
+        <Modal.Header closeButton className='p-4'>
+
+        </Modal.Header>
         <Modal.Body>
           <ShopDetail activeItem={activeItem}></ShopDetail>
         </Modal.Body>
@@ -251,7 +254,7 @@ export default IndexPage
 export const Head: HeadFC = () => (
   <>
     <title>Mario Howard – Keramikstudio bei Moritzburg</title>
-    <meta name="description" content="Einzigartige Keramik-Kunst entstehen durch Wechselfeuertechnik im klassischen Zweibrandverfahren in der Werkstatt von Mario Howard bei Moritzburg." />
+    <meta name="description" content="Einzigartige Keramik-Unikate entstehen in bester handwerklicher Tradition in der Werkstatt von Mario Howard bei Moritzburg nahe Dresden." />
     <meta name="theme-color" content="#B23929" />
     <meta name="format-detection" content="telephone=no" />
   </>
@@ -276,6 +279,8 @@ export const query = graphql`
       Verkaufsobjekte {
         Titel
         Beschreibung
+        Hoehe
+        Durchmesser
         Preis
         Fotos {
           directus_files_id {
