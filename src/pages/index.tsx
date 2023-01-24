@@ -171,7 +171,7 @@ const IndexPage = ({ data }) => {
                 </div>
               </div>
             </Col>
-            <Col sm={6} className="mt-4 mt-md-0 p-0">
+            <Col sm={6} className="mt-4 mt-md-0">
               <Map></Map>
             </Col>
           </Row>
