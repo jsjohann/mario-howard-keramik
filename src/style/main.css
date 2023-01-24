@@ -43,7 +43,7 @@ h2 {
 
 .modal-backdrop {
   backdrop-filter: blur(3px);
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-backdrop.show {
@@ -109,7 +109,7 @@ h2 {
 }
 
 .modal-content {
-  border-radius: 0;
+  border-radius: 1rem;
   background-color: #fffefb;
   border: none;
 }
@@ -192,7 +192,31 @@ h2 {
 
 @media (min-width: 576px) {
   .modal-dialog {
-    max-width: 60vw;
+    max-width: 75vw;
+  }
+}
+
+@media (min-width: 768px) {
+  .modal-dialog {
+    max-width: 75vw;
+  }
+}
+
+@media (min-width: 992px) {
+  .modal-dialog {
+    max-width: 55vw;
+  }
+}
+
+@media (min-width: 1200px) {
+  .modal-dialog {
+    max-width: 45vw;
+  }
+}
+
+@media (min-width: 1400px) {
+  .modal-dialog {
+    max-width: 40vw;
   }
 }
 

@@ -103,12 +103,12 @@ const IndexPage = ({ data }) => {
               {index === 5 && <Details key={`${index}-detail`}></Details>}
               <Container fluid="lg" key={`${index}-${node.Titel}`} className="p-0 mb-4">
                 <Row>
-                  <Col xs={12} xl={{ span: 8, offset: node.Ausrichtung === 'right' ? 0  : 4 }}>
+                  <Col xs={12} lg={{ span: 8, offset: node.Ausrichtung === 'right' ? 0  : 4 }}>
                     <GatsbyImage image={image} alt="{node.Titel}" />
                   </Col>
-                  <Col sm={8} sm={{ span: 8, offset: node.Ausrichtung === 'left' ? 0 : 4 }} xl={{ span: 5, offset: node.Ausrichtung === 'left' ? 0 : 7 }}>
+                  <Col sm={8} sm={{ span: 8, offset: node.Ausrichtung === 'left' ? 0 : 4 }} lg={{ span: 6, offset: node.Ausrichtung === 'left' ? 0 : 6 }}>
                     <div style={cardStyle}>
-                      <div style={cardContentStyle} className={node.Ausrichtung === 'left' ? 'content-card p-4 ps-md-6 mb-md-4' : 'content-card p-4 pe-md-6 mb-md-4'}>
+                      <div style={cardContentStyle} className={node.Ausrichtung === 'left' ? 'content-card p-4 ps-md-6 mb-md-5 mb-lg-4 mb-xl-5' : 'content-card p-4 pe-md-6 mb-md-5 mb-lg-4 mb-xl-5'}>
                         <h2>{node.Titel}</h2>
                         <p style={{ marginBottom: 0 }}>{node.Inhalt}</p>
                       </div>
@@ -122,7 +122,7 @@ const IndexPage = ({ data }) => {
           return (
             <Container fluid="lg" key={`${index}-${node.Titel}`} className="p-0 mb-4">
               <Row>
-                <Col xl={{ span: 8, offset: 4 }}>
+                <Col lg={{ span: 8, offset: 4 }}>
                   <GatsbyImage image={image} alt="{node.Titel}" />
                 </Col>
               </Row>

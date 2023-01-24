@@ -22,7 +22,7 @@ const Logo = () => {
   return (
     <Container fluid="lg" style={logoStyle} className="p-4 p-md-5 px-md-6">
         <Row className="justify-content-center">
-          <Col xs={12} md={6} style={logoContainerStyle}>
+          <Col xs={12} md={6} style={logoContainerStyle} className="px-0">
             <Stack direction="horizontal" gap={3} className="justify-content-center">
               <img src={logo} alt="Logo Mario Howard" />
               <div style={textContainerStyle}>
