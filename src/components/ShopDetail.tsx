@@ -1,36 +1,16 @@
 import React, { useState } from 'react'
 import { Container, Row, Col} from 'react-bootstrap';
-import { Link } from "gatsby"
-import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Mousewheel, Swiper as SwiperType, Thumbs, FreeMode, EffectFade } from 'swiper';
+import { Thumbs, FreeMode } from 'swiper';
 import 'swiper/css';
-import "swiper/css/effect-fade";
-
-const shopDetailStyle = {
-
-}
-
-const thumbStyle = {
-  opacity: 0.5
-}
-
-const thumbStyleActive = {
-  opacity: 1
-}
 
 const ShopDetail = (props) => {
   const activeItem = props.activeItem;
-  const [activeImage, setActiveImage] = useState<number>(0);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
-  const handleChangeImage = (index: number) => {
-    setActiveImage(index);
-    console.log(index);
-  }
-
   return (
-    <Container style={shopDetailStyle} className="p-2 pt-0">
+    <Container className="p-2 pt-0">
       <Row>
           <Col xs={12}>
             <Row className="mb-4">
@@ -65,12 +45,11 @@ const ShopDetail = (props) => {
               </Col>
               <Col xs={10} className="pe-2">
                 <Swiper
-                  modules = {[Thumbs, EffectFade]}
+                  modules = {[Thumbs]}
                   mousewheel = {{ }}
                   spaceBetween = {24}
                   slidesPerView = {1}
                   thumbs={{ swiper: thumbsSwiper }}
-                  effect={"fade"}
                 >
                   {activeItem?.Fotos.map((node, index: number) => {
                     const image = getImage(node.directus_files_id.imageFile);

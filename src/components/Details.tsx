@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, {  } from 'react'
 import { Container, Row, Col} from 'react-bootstrap';
 import { StaticImage } from 'gatsby-plugin-image';
 import DetailVideo from "../assets/detail-video.mp4";
 
-const Details = (props) => {
+const Details = () => {
 
   return (
     <Container fluid="lg" className="p-0 mb-4">

@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Link, HeadFC, graphql } from "gatsby"
+import { HeadFC, graphql } from "gatsby"
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import { Container, Row, Col} from 'react-bootstrap';

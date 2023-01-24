@@ -4,8 +4,6 @@ import { graphql, HeadFC } from "gatsby"
 import HeaderVideo4k264 from "../assets/header-video-4k-264.mp4";
 import HeaderVideo4k265 from "../assets/header-video-4k-265.mp4";
 
-import Poster from '../assets/poster-header.jpg';
-
 import { Container, Row, Col, Modal} from 'react-bootstrap';
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -37,10 +35,6 @@ const cardStyle = {
   height: '100%'
 };
 
-const cardContentStyle = {
-
-}
-
 const contactStyle = {
   backgroundColor: '#B23929',
   color: '#fffefb'
@@ -56,29 +50,6 @@ const contactContentListStyle = {
   flexDirection: 'row'
 }
 
-const footerStyle = {
-  color: '#DCDCDC',
-  backgroundColor: '#4A262A',
-  fontSize: '1rem'
-}
-
-const shopStyle = {
-
-}
-
-const shopContainerStyle = {
- /* scrollSnapType: 'x mandatory',
-  overflowScrolling: "touch",
-  WebkitOverflowScrolling: "touch",
-  display: 'flex',
-  flexWrap: 'nowrap',
-  overflowX: 'scroll'*/
-}
-
-const shopObjectStyle = {
-  // scrollSnapAlign: 'start'
-}
-
 const IndexPage = ({ data }) => {
   return (
     <main>
@@ -86,7 +57,7 @@ const IndexPage = ({ data }) => {
       <Container fluid className="p-0">
         <Row>
           <Col>
-            <video className='header-video' preload="metadata" style={{ width: '100%' }} autoPlay loop muted playsInline poster={Poster}>
+            <video className='header-video' preload="metadata" style={{ width: '100%' }} autoPlay loop muted playsInline>
               <source src={HeaderVideo4k265} type='video/mp4; codecs="hvc1"' />
               <source src={HeaderVideo4k264} type='video/mp4;' />
             </video>
@@ -108,7 +79,7 @@ const IndexPage = ({ data }) => {
                   </Col>
                   <Col sm={8} sm={{ span: 8, offset: node.Ausrichtung === 'left' ? 0 : 4 }} lg={{ span: 6, offset: node.Ausrichtung === 'left' ? 0 : 6 }}>
                     <div style={cardStyle}>
-                      <div style={cardContentStyle} className={node.Ausrichtung === 'left' ? 'content-card p-4 ps-md-6 mb-md-5 mb-lg-4 mb-xl-5' : 'content-card p-4 pe-md-6 mb-md-5 mb-lg-4 mb-xl-5'}>
+                      <div className={node.Ausrichtung === 'left' ? 'content-card p-4 ps-md-6 mb-md-5 mb-lg-4 mb-xl-5' : 'content-card p-4 pe-md-6 mb-md-5 mb-lg-4 mb-xl-5'}>
                         <h2>{node.Titel}</h2>
                         <p style={{ marginBottom: 0 }}>{node.Inhalt}</p>
                       </div>
@@ -131,9 +102,9 @@ const IndexPage = ({ data }) => {
         }
       })}
 
-      <Container fluid="lg" style={shopStyle} className="p-4">
+      <Container fluid="lg" className="p-4">
         <h2 className='mb-3'>Aktuelle Verkaufsobjekte</h2>
-        <Row style={shopContainerStyle} className="pt-2 px-6">
+        <Row className="pt-2 px-6">
 
           {data.directus.Verkaufsobjekte.length ? 
             Carousel(data) : <p>Aktuell werden keine Objekte zum Verkauf angeboten. Schauen Sie gern zu einem späteren Zeitpunkt noch einmal vorbei oder nutzen Sie die untenstehenden Kontaktmöglichkeiten.</p>
