@@ -188,11 +188,20 @@ h2 {
     background-color: #fffefbdd;
     backdrop-filter: blur(3px);
   }
+
+  .gallery-navigation {
+    display: none;
+  }
 }
 
 @media (min-width: 576px) {
   .modal-dialog {
     max-width: 75vw;
+  }
+
+  .gallery-navigation {
+    left: -1rem;
+    right: -1rem;
   }
 }
 
@@ -200,11 +209,17 @@ h2 {
   .modal-dialog {
     max-width: 75vw;
   }
+
 }
 
 @media (min-width: 992px) {
   .modal-dialog {
     max-width: 55vw;
+  }
+
+  .gallery-navigation {
+    left: -2rem;
+    right: -2rem;
   }
 }
 

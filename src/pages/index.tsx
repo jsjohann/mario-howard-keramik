@@ -175,20 +175,24 @@ const Carousel = (data) => {
         modules = {[Mousewheel]}
         mousewheel = {{ }}
         spaceBetween = {24}
-        slidesPerView = {1}
+        slidesPerView = {1.25}
+        centeredSlides = {true}
         onSlideChange = { (state) => setCurrentProgress(state.progress) }
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper;
         }}
         breakpoints = {{
           576: {
-            slidesPerView: 2
+            slidesPerView: 2,
+            centeredSlides: false
           },
           768: {
-            slidesPerView: 3
+            slidesPerView: 3,
+            centeredSlides: false
           },
           992: {
-            slidesPerView: 4
+            slidesPerView: 4,
+            centeredSlides: false
           }
         }}
       >
