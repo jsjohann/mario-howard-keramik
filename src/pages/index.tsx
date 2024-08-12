@@ -58,8 +58,7 @@ const IndexPage = ({ data }) => {
         <Row>
           <Col>
             <video className='header-video' preload="metadata" style={{ width: '100%' }} autoPlay loop muted playsInline>
-              <source src={HeaderVideo4k265} type='video/mp4; codecs="hvc1"' />
-              <source src={HeaderVideo4k264} type='video/mp4;' />
+              <source src={HeaderVideo4k264} type='video/mp4' />
             </video>
           </Col>
         </Row>
@@ -239,6 +238,7 @@ export const Head: HeadFC = () => (
     <meta name="description" content="Einzigartige Keramik-Unikate entstehen in bester handwerklicher Tradition in der Werkstatt von Mario Howard bei Moritzburg nahe Dresden." />
     <meta name="theme-color" content="#B23929" />
     <meta name="format-detection" content="telephone=no" />
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="fb4ed6f0-6b8e-4d4a-87c2-62d3b9fa1ca5"></script>
   </>
 )
 

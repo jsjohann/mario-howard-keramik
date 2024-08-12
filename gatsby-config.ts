@@ -29,7 +29,7 @@ const config: GatsbyConfig = {
   {
 			resolve: '@directus/gatsby-source-directus',
 			options: {
-				url: `https://ciwyi1ri.directus.app`, // Fill with your Directus instance address
+				url: `http://188.34.200.119:8055`, // Fill with your Directus instance address
 				/* auth: {
 					token: 'my_secret_token', // You can use a static token from an user
 
