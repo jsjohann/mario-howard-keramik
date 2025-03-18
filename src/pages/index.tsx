@@ -128,13 +128,13 @@ const IndexPage = ({ data }) => {
                   </div>
                 </div>
                 <div style={contactContentListStyle}>
-                  <FontAwesomeIcon icon={faEnvelopeOpenText} fixedWidth />
+                  <FontAwesomeIcon icon={faPhone} fixedWidth />
                   <div className="ms-4">
                     +49 (0) 351 / 83 38 38 31
                   </div>
                 </div>
                 <div style={contactContentListStyle}>
-                  <FontAwesomeIcon icon={faPhone} fixedWidth />
+                  <FontAwesomeIcon icon={faEnvelopeOpenText} fixedWidth />
                   <div className="ms-4">
                     mario.howard@gmx.de
                   </div>
