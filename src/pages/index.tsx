@@ -130,7 +130,7 @@ const IndexPage = ({ data }) => {
                 <div style={contactContentListStyle}>
                   <FontAwesomeIcon icon={faPhone} fixedWidth />
                   <div className="ms-4">
-                    +49 (0) 351 / 83 38 38 31
+                    +49 (0) 172 814 20 59
                   </div>
                 </div>
                 <div style={contactContentListStyle}>
