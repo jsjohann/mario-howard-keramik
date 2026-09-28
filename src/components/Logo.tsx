@@ -18,9 +18,11 @@ const Logo = () => {
             <Stack direction="horizontal" gap={3} className="justify-content-center">
               <img src={logo} alt="Logo Mario Howard" />
               <div style={textContainerStyle}>
-                <h1>Mario</h1>
-                <h1>Howard</h1>
-                <h1 style={textRed}>Keramik</h1>
+                <h1>
+                  <span className="d-block">Mario</span>
+                  <span className="d-block">Howard</span>
+                  <span className="d-block" style={textRed}>Keramik</span>
+                </h1>
               </div>
             </Stack>
           </Col>

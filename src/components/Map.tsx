@@ -1,12 +1,18 @@
 import React, { useRef, useEffect, useState } from 'react';
 import 'maplibre-gl/dist/maplibre-gl.css';
 
-//@ts-ignore
-import maplibregl from "!maplibre-gl";
-//@ts-ignore
-import maplibreglWorker from "maplibre-gl/dist/maplibre-gl-csp-worker";
-//@ts-ignore
-maplibregl.workerClass = maplibreglWorker;
+// maplibre-gl is large, so it is only loaded once the map scrolls into view
+const loadMaplibre = async () => {
+  const [maplibreModule, workerModule] = await Promise.all([
+    //@ts-ignore
+    import("!maplibre-gl"),
+    //@ts-ignore
+    import("maplibre-gl/dist/maplibre-gl-csp-worker")
+  ]);
+  const maplibregl = maplibreModule.default ?? maplibreModule;
+  maplibregl.workerClass = workerModule.default ?? workerModule;
+  return maplibregl;
+};
 
 const mapWraperStyle = {
   position: 'relative',
@@ -25,29 +31,50 @@ const MAP_CENTER_LAT = 51.140657;
 
 export default function Map(){
   const mapContainer = useRef(null);
-  const map = useRef(null);
+  const map = useRef<any>(null);
   const [lng] = useState(MAP_CENTER_LNG);
   const [lat] = useState(MAP_CENTER_LAT);
   const [zoom] = useState(15);
 
   useEffect(() => {
-    if (map.current) return;
+    const container = mapContainer.current;
+    if (!container) return;
+    let cancelled = false;
 
-    map.current = new maplibregl.Map({
-      container: mapContainer.current,
-      style: `https://mario-howard.de/map/style.json`,
-      center: [lng, lat],
-      zoom: zoom,
-      minZoom: 11,
-      maxZoom: 18,
-      maxBounds: [[13, 50.8], [14.4, 51.2]]
-    });
+    const initMap = async () => {
+      const maplibregl = await loadMaplibre();
+      if (cancelled || map.current) return;
 
-    map.current.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+      map.current = new maplibregl.Map({
+        container,
+        style: `https://mario-howard.de/map/style.json`,
+        center: [lng, lat],
+        zoom: zoom,
+        minZoom: 11,
+        maxZoom: 18,
+        maxBounds: [[13, 50.8], [14.4, 51.2]]
+      });
 
-    new maplibregl.Marker({ color: '#8EC8D5' }).setLngLat([MAP_CENTER_LNG, MAP_CENTER_LAT]).addTo(map.current);
+      map.current.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
 
-  });
+      new maplibregl.Marker({ color: '#8EC8D5' }).setLngLat([MAP_CENTER_LNG, MAP_CENTER_LAT]).addTo(map.current);
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        observer.disconnect();
+        initMap();
+      }
+    }, { rootMargin: '300px' });
+    observer.observe(container);
+
+    return () => {
+      cancelled = true;
+      observer.disconnect();
+      map.current?.remove();
+      map.current = null;
+    };
+  }, []);
 
   return (
     <div style={mapWraperStyle} className="map-wrapper">

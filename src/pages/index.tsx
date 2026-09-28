@@ -3,6 +3,7 @@ import { useRef, useState } from "react"
 import { graphql, HeadFC } from "gatsby"
 import HeaderVideo4k264 from "../assets/header-video-4k-264.mp4";
 import HeaderVideo4k265 from "../assets/header-video-4k-265.mp4";
+import PosterHeader from "../assets/poster-header.jpg";
 
 import { Container, Row, Col, Modal} from 'react-bootstrap';
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -57,7 +58,8 @@ const IndexPage = ({ data }) => {
       <Container fluid className="p-0">
         <Row>
           <Col>
-            <video className='header-video' preload="metadata" style={{ width: '100%' }} autoPlay loop muted playsInline>
+            <video className='header-video' preload="metadata" poster={PosterHeader} style={{ width: '100%' }} autoPlay loop muted playsInline>
+              <source src={HeaderVideo4k265} type='video/mp4; codecs="hvc1"' />
               <source src={HeaderVideo4k264} type='video/mp4' />
             </video>
           </Col>
@@ -74,7 +76,7 @@ const IndexPage = ({ data }) => {
               <Container fluid="lg" key={`${index}-${node.Titel}`} className="p-0 mb-4">
                 <Row>
                   <Col xs={12} lg={{ span: 8, offset: node.Ausrichtung === 'right' ? 0  : 4 }}>
-                    <GatsbyImage image={image} alt="{node.Titel}" />
+                    <GatsbyImage image={image} alt={node.Titel} />
                   </Col>
                   <Col sm={8} sm={{ span: 8, offset: node.Ausrichtung === 'left' ? 0 : 4 }} lg={{ span: 6, offset: node.Ausrichtung === 'left' ? 0 : 6 }}>
                     <div style={cardStyle}>
@@ -93,7 +95,7 @@ const IndexPage = ({ data }) => {
             <Container fluid="lg" key={`${index}-${node.Titel}`} className="p-0 mb-4">
               <Row>
                 <Col lg={{ span: 8, offset: 4 }}>
-                  <GatsbyImage image={image} alt="{node.Titel}" />
+                  <GatsbyImage image={image} alt="Keramik von Mario Howard" />
                 </Col>
               </Row>
             </Container>
@@ -130,13 +132,13 @@ const IndexPage = ({ data }) => {
                 <div style={contactContentListStyle}>
                   <FontAwesomeIcon icon={faPhone} fixedWidth />
                   <div className="ms-4">
-                    +49 (0) 172 814 20 59
+                    <a href="tel:+491728142059">+49 (0) 172 814 20 59</a>
                   </div>
                 </div>
                 <div style={contactContentListStyle}>
                   <FontAwesomeIcon icon={faEnvelopeOpenText} fixedWidth />
                   <div className="ms-4">
-                    mario.howard@gmx.de
+                    <a href="mailto:mario.howard@gmx.de">mario.howard@gmx.de</a>
                   </div>
                 </div>
               </div>
@@ -200,7 +202,7 @@ const Carousel = (data) => {
 
           return (
             <SwiperSlide key={`${node.Titel}-${index}`} onClick={() => handleShow(node)} style={{ cursor: 'pointer' }}>
-              <GatsbyImage className="gallery-image" image={image} alt="{node.Titel}" />
+              <GatsbyImage className="gallery-image" image={image} alt={node.Titel} />
               <h3 style={{ fontSize: '1.1rem' }} className="mt-2 mb-0">{node.Titel}</h3>
               <p style={{ fontSize: '1.1rem' }}>{node.Preis} €</p>
             </SwiperSlide>
@@ -232,12 +234,64 @@ const Carousel = (data) => {
 
 export default IndexPage
 
+const SITE_URL = 'https://mario-howard.de';
+const SITE_TITLE = 'Mario Howard – Keramikstudio bei Moritzburg';
+const SITE_DESCRIPTION = 'Einzigartige Keramik-Unikate entstehen in bester handwerklicher Tradition in der Werkstatt von Mario Howard in Dippelsdorf bei Moritzburg nahe Dresden.';
+const SHARE_IMAGE_URL = `${SITE_URL}${PosterHeader}`;
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': `${SITE_URL}/#business`,
+  name: 'Mario Howard Keramik',
+  alternateName: 'Studio + Keramik Mario Howard',
+  description: 'Keramik-Unikate aus der Werkstatt von Mario Howard in Dippelsdorf (Moritzburg OT Friedewald) nahe Dresden. Besuch nach Vereinbarung und zu besonderen Öffnungszeiten.',
+  url: `${SITE_URL}/`,
+  image: SHARE_IMAGE_URL,
+  logo: `${SITE_URL}/icons/icon-512x512.png`,
+  telephone: '+49 172 8142059',
+  email: 'mario.howard@gmx.de',
+  founder: {
+    '@type': 'Person',
+    name: 'Mario Howard'
+  },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Dorfstraße 7',
+    postalCode: '01468',
+    addressLocality: 'Moritzburg OT Friedewald',
+    addressRegion: 'Sachsen',
+    addressCountry: 'DE'
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 51.140657,
+    longitude: 13.66125
+  }
+};
+
 export const Head: HeadFC = () => (
   <>
-    <title>Mario Howard – Keramikstudio bei Moritzburg</title>
-    <meta name="description" content="Einzigartige Keramik-Unikate entstehen in bester handwerklicher Tradition in der Werkstatt von Mario Howard bei Moritzburg nahe Dresden." />
+    <title>{SITE_TITLE}</title>
+    <meta name="description" content={SITE_DESCRIPTION} />
+    <link rel="canonical" href={`${SITE_URL}/`} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="Mario Howard Keramik" />
+    <meta property="og:url" content={`${SITE_URL}/`} />
+    <meta property="og:title" content={SITE_TITLE} />
+    <meta property="og:description" content={SITE_DESCRIPTION} />
+    <meta property="og:image" content={SHARE_IMAGE_URL} />
+    <meta property="og:image:width" content="3840" />
+    <meta property="og:image:height" content="2160" />
+    <meta property="og:image:alt" content="Keramikwerkstatt von Mario Howard" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={SITE_TITLE} />
+    <meta name="twitter:description" content={SITE_DESCRIPTION} />
+    <meta name="twitter:image" content={SHARE_IMAGE_URL} />
     <meta name="theme-color" content="#B23929" />
     <meta name="format-detection" content="telephone=no" />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
     <script defer src="https://cloud.umami.is/script.js" data-website-id="fb4ed6f0-6b8e-4d4a-87c2-62d3b9fa1ca5"></script>
   </>
 )
