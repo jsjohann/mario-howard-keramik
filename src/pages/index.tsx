@@ -12,6 +12,7 @@ import {
   faLocationDot,
   faPhone,
   faEnvelopeOpenText,
+  faClock,
   faAngleLeft,
   faAngleRight
 } from '@fortawesome/free-solid-svg-icons'
@@ -139,6 +140,13 @@ const IndexPage = ({ data }) => {
                   <FontAwesomeIcon icon={faEnvelopeOpenText} fixedWidth />
                   <div className="ms-4">
                     <a href="mailto:mario.howard@gmx.de">mario.howard@gmx.de</a>
+                  </div>
+                </div>
+                <div style={contactContentListStyle} className="mt-4">
+                  <FontAwesomeIcon icon={faClock} fixedWidth />
+                  <div className="ms-4">
+                    <span style={{ display: 'block' }}>Besuch nach Vereinbarung</span>
+                    <span style={{ display: 'block' }}>und zu besonderen Öffnungszeiten</span>
                   </div>
                 </div>
               </div>
