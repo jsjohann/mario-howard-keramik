@@ -145,8 +145,7 @@ const IndexPage = ({ data }) => {
                 <div style={contactContentListStyle} className="mt-4">
                   <FontAwesomeIcon icon={faClock} fixedWidth />
                   <div className="ms-4">
-                    <span style={{ display: 'block' }}>Besuch nach Vereinbarung</span>
-                    <span style={{ display: 'block' }}>und zu besonderen Öffnungszeiten</span>
+                    Besuch nach Vereinbarung
                   </div>
                 </div>
               </div>
@@ -253,7 +252,7 @@ const structuredData = {
   '@id': `${SITE_URL}/#business`,
   name: 'Mario Howard Keramik',
   alternateName: 'Studio + Keramik Mario Howard',
-  description: 'Keramik-Unikate aus der Werkstatt von Mario Howard in Dippelsdorf (Moritzburg OT Friedewald) nahe Dresden. Besuch nach Vereinbarung und zu besonderen Öffnungszeiten.',
+  description: 'Keramik-Unikate aus der Werkstatt von Mario Howard in Dippelsdorf (Moritzburg OT Friedewald) nahe Dresden. Besuch nach Vereinbarung.',
   url: `${SITE_URL}/`,
   image: SHARE_IMAGE_URL,
   logo: `${SITE_URL}/icons/icon-512x512.png`,
