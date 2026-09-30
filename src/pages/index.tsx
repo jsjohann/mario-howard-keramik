@@ -12,6 +12,7 @@ import {
   faLocationDot,
   faPhone,
   faEnvelopeOpenText,
+  faClock,
   faAngleLeft,
   faAngleRight
 } from '@fortawesome/free-solid-svg-icons'
@@ -141,6 +142,12 @@ const IndexPage = ({ data }) => {
                     <a href="mailto:mario.howard@gmx.de">mario.howard@gmx.de</a>
                   </div>
                 </div>
+                <div style={contactContentListStyle} className="mt-4">
+                  <FontAwesomeIcon icon={faClock} fixedWidth />
+                  <div className="ms-4">
+                    Besuch nach Vereinbarung
+                  </div>
+                </div>
               </div>
             </Col>
             <Col sm={6} className="mt-4 mt-md-0">
@@ -245,7 +252,7 @@ const structuredData = {
   '@id': `${SITE_URL}/#business`,
   name: 'Mario Howard Keramik',
   alternateName: 'Studio + Keramik Mario Howard',
-  description: 'Keramik-Unikate aus der Werkstatt von Mario Howard in Dippelsdorf (Moritzburg OT Friedewald) nahe Dresden. Besuch nach Vereinbarung und zu besonderen Öffnungszeiten.',
+  description: 'Keramik-Unikate aus der Werkstatt von Mario Howard in Dippelsdorf (Moritzburg OT Friedewald) nahe Dresden. Besuch nach Vereinbarung.',
   url: `${SITE_URL}/`,
   image: SHARE_IMAGE_URL,
   logo: `${SITE_URL}/icons/icon-512x512.png`,
