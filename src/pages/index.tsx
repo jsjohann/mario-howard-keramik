@@ -125,7 +125,7 @@ const IndexPage = ({ data }) => {
                   <div className="ms-4">
                     <span style={{ display: 'block' }}>Studio + Keramik</span>
                     <span style={{ display: 'block' }}>Mario Howard</span>
-                    <span style={{ display: 'block' }}>Dorfstraße 7</span>
+                    <span style={{ display: 'block' }}>Dippelsdorf 7</span>
                     <span style={{ display: 'block' }}>01468 Moritzburg</span>
                     <span style={{ display: 'block' }}>(OT Friedewald)</span>
                   </div>
@@ -264,7 +264,7 @@ const structuredData = {
   },
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Dorfstraße 7',
+    streetAddress: 'Dippelsdorf 7',
     postalCode: '01468',
     addressLocality: 'Moritzburg OT Friedewald',
     addressRegion: 'Sachsen',

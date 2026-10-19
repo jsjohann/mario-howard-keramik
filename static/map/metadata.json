@@ -3,8 +3,15 @@
   "scheme": "xyz",
   "type": "baselayer",
   "format": "pbf",
-  "tiles": ["https://mario-howard.de/map/{z}/{x}/{y}.pbf"],
-  "bounds": [12.95, 50.8, 14.45, 51.3],
+  "tiles": [
+    "https://mario-howard.de/map/{z}/{x}/{y}.pbf"
+  ],
+  "bounds": [
+    12.95,
+    50.8,
+    14.45,
+    51.3
+  ],
   "name": "Tilemaker to OpenMapTiles schema",
   "version": "3.0",
   "description": "Tile config based on OpenMapTiles schema",
@@ -13,14 +20,20 @@
   "vector_layers": [
     {
       "id": "place",
-      "fields": { "class": "String", "name:latin": "String" },
-      "minzoom": 8,
+      "fields": {
+        "class": "String",
+        "name:latin": "String"
+      },
+      "minzoom": 0,
       "maxzoom": 14
     },
     {
       "id": "boundary",
-      "fields": { "admin_level": "Number", "disputed": "Number" },
-      "minzoom": 8,
+      "fields": {
+        "admin_level": "Number",
+        "disputed": "Number"
+      },
+      "minzoom": 0,
       "maxzoom": 14
     },
     {
@@ -36,7 +49,9 @@
     },
     {
       "id": "housenumber",
-      "fields": { "housenumber": "String" },
+      "fields": {
+        "housenumber": "String"
+      },
       "minzoom": 14,
       "maxzoom": 14
     },
@@ -54,11 +69,13 @@
     {
       "id": "transportation",
       "fields": {
+        "access": "String",
         "brunnel": "String",
         "class": "String",
         "oneway": "Number",
         "ramp": "Number",
-        "service": "String"
+        "service": "String",
+        "surface": "String"
       },
       "minzoom": 4,
       "maxzoom": 14
@@ -78,9 +95,6 @@
     {
       "id": "building",
       "fields": {
-        "housenumber": "String",
-        "name:latin": "String",
-        "rank": "Number",
         "render_height": "Number",
         "render_min_height": "Number"
       },
@@ -89,19 +103,28 @@
     },
     {
       "id": "water",
-      "fields": { "class": "String", "intermittent": "String" },
+      "fields": {
+        "class": "String",
+        "intermittent": "String"
+      },
       "minzoom": 6,
       "maxzoom": 14
     },
     {
       "id": "water_name",
-      "fields": { "class": "String", "name:latin": "String" },
+      "fields": {
+        "class": "String",
+        "name:latin": "String"
+      },
       "minzoom": 14,
       "maxzoom": 14
     },
     {
       "id": "aeroway",
-      "fields": { "class": "String", "ref": "String" },
+      "fields": {
+        "class": "String",
+        "ref": "String"
+      },
       "minzoom": 11,
       "maxzoom": 14
     },
@@ -120,20 +143,28 @@
     },
     {
       "id": "park",
-      "fields": { "class": "String", "name:latin": "String" },
+      "fields": {
+        "class": "String",
+        "name:latin": "String"
+      },
       "minzoom": 11,
       "maxzoom": 14
     },
     {
       "id": "landuse",
-      "fields": { "class": "String" },
+      "fields": {
+        "class": "String"
+      },
       "minzoom": 4,
       "maxzoom": 14
     },
     {
       "id": "landcover",
-      "fields": { "class": "String", "subclass": "String" },
-      "minzoom": 8,
+      "fields": {
+        "class": "String",
+        "subclass": "String"
+      },
+      "minzoom": 0,
       "maxzoom": 14
     },
     {
